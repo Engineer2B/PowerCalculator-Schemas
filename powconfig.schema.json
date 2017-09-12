@@ -1,0 +1,76 @@
+{
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"title": "Schema for powercalculator global settings file.",
+	"type": "object",
+	"required": [
+		"windows"
+	],
+	"properties": {
+		"windows": {
+			"title": "windows",
+			"description": "Settings for windows environments.",
+			"required": [
+				"Output",
+				"Log",
+				"Preset",
+				"ProjectFolderPath"
+			],
+			"type": "object",
+			"properties": {
+				"ProjectFolderPath": {
+					"type": "string",
+					"title": "Project folder path",
+					"description": "The root folder of the project."
+				},
+				"Output": {
+					"type": "object",
+					"title": "Output folder path",
+					"description": "The path to the output folder",
+					"$ref": "#/definitions/relative_path"
+				},
+				"Log": {
+					"type": "object",
+					"title": "Log folder path",
+					"description": "The path to the folder where errors and such are logged to.",
+					"$ref": "#/definitions/relative_path"
+				},
+				"Preset": {
+					"allOf": [
+						{
+							"type": "object",
+							"title": "Preset",
+							"description": "Preset folder properties.",
+							"required": [
+								"FileName"
+							],
+							"properties": {
+								"FileName": {
+									"type": "string",
+									"title": "File name",
+									"description": "The name of the preset file.",
+									"default": "Default_Mesh.json"
+								}
+							}
+						},
+						{
+							"$ref": "#/definitions/relative_path"
+						}
+					]
+				}
+			}
+		}
+	},
+	"definitions": {
+		"relative_path": {
+			"properties": {
+				"RelativePath": {
+					"type": "string",
+					"title": "Relative folder path"
+				}
+			},
+			"required": [
+				"RelativePath"
+			]
+		}
+	}
+}
