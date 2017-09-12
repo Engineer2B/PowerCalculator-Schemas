@@ -69,6 +69,29 @@
 					"description": "The path to the folder where errors and such are logged to.",
 					"$ref": "#/definitions/relative_path"
 				},
+				"Transducer": {
+					"allOf": [
+						{
+							"type": "object",
+							"title": "Transducer folder path",
+							"description": "The path to the folder where the transducer positions are stored.",
+							"required": [
+								"FileName"
+							],
+							"properties": {
+								"FileName": {
+									"type": "string",
+									"title": "File name",
+									"description": "The name of the transducer position file.",
+									"default": "Positions.json"
+								}
+							}
+						},
+						{
+							"$ref": "#/definitions/relative_path"
+						}
+					]
+				},
 				"Preset": {
 					"allOf": [
 						{
