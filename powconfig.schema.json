@@ -1,6 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-06/schema#",
-	"title": "Schema for powercalculator global settings file.",
+	"title": "Power calculator global configuration",
+	"description": "Global settings file for the power calculator application.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
 	"required": [
 		"windows"
