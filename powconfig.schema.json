@@ -7,20 +7,54 @@
 	],
 	"properties": {
 		"windows": {
-			"title": "windows",
-			"description": "Settings for windows environments.",
+			"allOf": [
+				{
+					"title": "windows",
+					"description": "Settings for windows environments."
+				},
+				{
+					"$ref": "#/definitions/settings"
+				}
+			]
+		},
+		"linux": {
+			"allOf": [
+				{
+					"title": "linux",
+					"description": "Settings for linux environments."
+				},
+				{
+					"$ref": "#/definitions/settings"
+				}
+			]
+		}
+	},
+	"definitions": {
+		"relative_path": {
+			"properties": {
+				"RelativePath": {
+					"type": "string",
+					"title": "Relative folder path",
+					"description": "The relative path to the folder, e.g. for the folder 'xyz' in d:\\data\\xyz the value would be 'xyz'"
+				}
+			},
+			"required": [
+				"RelativePath"
+			]
+		},
+		"settings": {
+			"type": "object",
 			"required": [
 				"Output",
 				"Log",
 				"Preset",
 				"ProjectFolderPath"
 			],
-			"type": "object",
 			"properties": {
 				"ProjectFolderPath": {
 					"type": "string",
 					"title": "Project folder path",
-					"description": "The root folder of the project."
+					"description": "The root folder of the power calculator folder from which all relative paths are calculated."
 				},
 				"Output": {
 					"type": "object",
@@ -58,19 +92,6 @@
 					]
 				}
 			}
-		}
-	},
-	"definitions": {
-		"relative_path": {
-			"properties": {
-				"RelativePath": {
-					"type": "string",
-					"title": "Relative folder path"
-				}
-			},
-			"required": [
-				"RelativePath"
-			]
 		}
 	}
 }
