@@ -114,6 +114,30 @@
 							"$ref": "#/definitions/relative_path"
 						}
 					]
+				},
+				"Mesh": {
+					"allOf": [
+						{
+							"type": "object",
+							"title": "Mesh",
+							"description": "Mesh folder properties.",
+							"required": [
+								"FileName"
+							],
+							"properties": {
+								"FileName": {
+									"type": "string",
+									"title": "File name",
+									"description": "The name of the mesh file.",
+									"default": "MuscleAndBone.msh",
+									"pattern": ".*\\.([mM][sS][hH]|[dD][iI][cC][oO][mM])"
+								}
+							}
+						},
+						{
+							"$ref": "#/definitions/relative_path"
+						}
+					]
 				}
 			}
 		}
