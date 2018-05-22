@@ -49,13 +49,13 @@
 				"Output",
 				"Log",
 				"Preset",
-				"ProjectFolderPath"
+				"DataFolderPath"
 			],
 			"properties": {
-				"ProjectFolderPath": {
+				"DataFolderPath": {
 					"type": "string",
-					"title": "Project folder path",
-					"description": "The root folder of the power calculator folder from which all relative paths are calculated."
+					"title": "Data folder path",
+					"description": "The root folder of the data folder from which all relative paths are calculated."
 				},
 				"Output": {
 					"type": "object",
