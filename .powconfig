@@ -17,7 +17,7 @@
 		}
 	},
 	"linux": {
-		"ProjectFolderPath": "",
+		"DataFolderPath": "",
 		"Output": {
 			"RelativePath": ""
 		},
