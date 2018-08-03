@@ -1,0 +1,13 @@
+{
+	"Name": "test",
+	"Density": 1,
+	"Acoustic attenuation":{
+		"Longitudinal": 0,
+		"Transversal": 0
+	},
+	"Speed of sound":{
+		"Longitudinal": 4,
+		"Transversal": 3
+	},
+	"Heat absorption fraction": 0
+}

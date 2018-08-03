@@ -1,0 +1,91 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Representation of a fluid medium.",
+	"description": "Contains relevant property values of a fluid medium.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
+	"type": "object",
+	"required": [
+		"Name",
+		"Density",
+		"Acoustic attenuation",
+		"Speed of sound",
+		"Heat absorption fraction"
+	],
+	"properties": {
+		"Name": {
+			"type": "string",
+			"description": "A unique identifier of the fluid medium.",
+			"examples": [
+				"Water",
+				"Markoil",
+				"Muscle"
+			]
+		},
+		"Speed of sound": {
+			"description": "[m/s] The speed of sound in the medium.",
+			"type": "number",
+			"exclusiveMinimum": 0,
+			"examples": [
+				997,
+				1500
+			]
+		},
+		"Acoustic attenuation": {
+			"description": "[Np/m] The attenuation of an acoustic wave in the medium.\nCan also be an equation string with parameter 'T' for temperature in [K].\nFor further reference see: https://en.wikipedia.org/wiki/Attenuation and https://en.wikipedia.org/wiki/Neper.",
+			"oneOf": [
+				{
+					"type": "number",
+					"inclusiveMinimum": 0,
+					"examples": [
+						0,
+						2,
+						3.3
+					]
+				},
+				{
+					"type": "string",
+					"examples": [
+						"e^(T-37)"
+					]
+				}
+			]
+		},
+		"Density": {
+			"description": "[kg/m^3] The amount of mass per volume.\nCan also be an equation string with parameter 'T' for temperature in [K].\nSee also: https://en.wikipedia.org/wiki/Density.",
+			"oneOf": [
+				{
+					"type": "number",
+					"exclusiveMinimum": 0,
+					"examples": [
+						997,
+						1500
+					]
+				},
+				{
+					"type": "string",
+					"examples": [
+						"1000*(T-37)"
+					]
+				}
+			]
+		},
+		"Heat absorption fraction": {
+			"description": "[-] The fraction of the heat that contributes to a temperature increase.",
+			"type": "number",
+			"inclusiveMinimum": 0,
+			"inclusiveMaximum": 1,
+			"examples": [
+				1,
+				0,
+				0.3
+			]
+		},
+		"Atmospheric pressure freezing point": {
+			"description": "[K] The temperature at 1 atm at which the medium changes to the solid phase.",
+			"type": "number",
+			"exclusiveMinimum": 0,
+			"examples": [
+				273
+			]
+		}
+	}
+}
