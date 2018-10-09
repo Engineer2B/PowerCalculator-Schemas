@@ -83,7 +83,8 @@
 									"type": "string",
 									"title": "File name",
 									"description": "The name of the transducer position file.",
-									"default": "Positions.json"
+									"default": "Positions.json",
+									"pattern": ".*\\.json$"
 								}
 							}
 						},
@@ -106,7 +107,8 @@
 									"type": "string",
 									"title": "File name",
 									"description": "The name of the preset file.",
-									"default": "Default_Mesh.json"
+									"default": "Default_Mesh.preset",
+									"pattern": ".*\\.preset$"
 								}
 							}
 						},

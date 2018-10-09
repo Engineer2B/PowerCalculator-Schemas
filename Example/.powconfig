@@ -9,7 +9,7 @@
 		},
 		"Preset": {
 			"RelativePath": "Preset",
-			"FileName": "Default_Mesh.json"
+			"FileName": "Default_Mesh.preset"
 		},
 		"Transducer": {
 			"RelativePath": "Transducer",
