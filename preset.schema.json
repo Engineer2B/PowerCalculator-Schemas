@@ -172,7 +172,8 @@
 									"Medium",
 									"Radius",
 									"Center",
-									"Direction"
+									"Direction",
+									"Id"
 								],
 								"properties": {
 									"Medium": {
@@ -192,6 +193,11 @@
 									"Direction": {
 										"description": "The direction that is perpendicular to the axis of the cylinder, i.e. the direction the shaft is pointed towards.",
 										"$ref": "#/definitions/Vector"
+									},
+									"Id": {
+										"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
+										"type":"integer",
+										"exclusiveMinimum": 0
 									}
 								}
 							}
@@ -204,7 +210,8 @@
 								"required": [
 									"Medium",
 									"Center",
-									"Direction"
+									"Direction",
+									"Id"
 								],
 								"properties": {
 									"Medium": {
@@ -218,6 +225,11 @@
 									"Direction": {
 										"$ref": "#/definitions/Vector",
 										"description": "Direction of the normal vector to the plane."
+									},
+									"Id": {
+										"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
+										"type":"integer",
+										"exclusiveMinimum": 0
 									}
 								}
 							}
