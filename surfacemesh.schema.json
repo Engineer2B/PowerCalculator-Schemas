@@ -15,10 +15,10 @@
 			"type": "array",
 			"items": {
 				"type": "array",
+				"minItems": 3,
+				"maxItems": 3,
 				"items": {
-					"type": "number",
-					"minItems": 3,
-					"maxItems": 3
+					"type": "number"
 				}
 			}
 		},
@@ -27,25 +27,26 @@
 			"type": "array",
 			"items": {
 				"type": "array",
+				"minItems": 3,
+				"maxItems": 3,
 				"items": {
 					"type": "integer",
-					"minItems": 3,
-					"maxItems": 3,
 					"exclusiveMinimum": 0
 				}
 			}
 		},
 		"Medium": {
 			"type": "string",
-			"pattern": "FMedium::\\w+"
+			"pattern": "FMedium::\\w+",
+			"description": "The unique name of the medium."
 		},
 		"Color": {
 			"type": "array",
 			"description": "The RGB color code used to draw the surface.",
+			"minItems": 3,
+			"maxItems": 3,
 			"items": {
 				"type": "integer",
-				"minItems": 3,
-				"maxItems": 3,
 				"minimum": 0,
 				"maximum": 255
 			}
