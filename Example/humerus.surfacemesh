@@ -1,5 +1,5 @@
 {
-	"Nodes":[
+	"Nodes": [
 		[
 			-2.37223e2,
 			-6.94408e1,
@@ -10906,7 +10906,7 @@
 			1.32557e3
 		]
 	],
-	"ElementIndices":[
+	"ElementIndices": [
 		[
 			1,
 			2,
@@ -29458,10 +29458,10 @@
 			2153
 		]
 	],
-	"Color":[
+	"Color": [
 		255,
 		255,
 		255
 	],
-	"Medium":"FMedium::Bone"
+	"Medium": "FMedium::Bone"
 }

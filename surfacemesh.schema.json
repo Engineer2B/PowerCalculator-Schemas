@@ -13,7 +13,6 @@
 		"Nodes": {
 			"description": "The coordinates in space where the vertices/nodes of the mesh are located.",
 			"type": "array",
-			"uniqueItems": true,
 			"items": {
 				"type": "array",
 				"minItems": 3,
@@ -26,7 +25,6 @@
 		"ElementIndices": {
 			"description": "Array of three node indices which together make up a triangle.",
 			"type": "array",
-			"uniqueItems": true,
 			"items": {
 				"type": "array",
 				"minItems": 3,
