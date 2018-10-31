@@ -1,0 +1,42 @@
+{
+	"json.schemas": [
+		{
+			"fileMatch": [
+				"*.powconfig"
+			],
+			"url": "./powconfig.schema.json"
+		},
+		{
+			"fileMatch": [
+				"*.fluid"
+			],
+			"url": "./fluid.schema.json"
+		},
+		{
+			"fileMatch": [
+				"*.solid"
+			],
+			"url": "./solid.schema.json"
+		},
+		{
+			"fileMatch": [
+				"*.preset"
+			],
+			"url": "./preset.schema.json"
+		},
+		{
+			"fileMatch": [
+				"*.surfacemesh"
+			],
+			"url": "./surfacemesh.schema.json"
+		}
+	],
+	"files.associations": {
+		"*.powconfig": "json",
+		"*.fluid": "json",
+		"*.solid": "json",
+		"*.preset": "json",
+		"*.surfacemesh": "json",
+		"random": "cpp"
+	}
+}
