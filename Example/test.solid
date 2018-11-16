@@ -9,5 +9,6 @@
 		"Longitudinal": 4,
 		"Transversal": 3
 	},
-	"Heat absorption fraction": 0
+	"Heat absorption fraction": 0,
+	"Isobaric mass heat capacity": 0.5
 }
