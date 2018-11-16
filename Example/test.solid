@@ -10,5 +10,6 @@
 		"Transversal": 3
 	},
 	"Heat absorption fraction": 0,
-	"Isobaric mass heat capacity": 0.5
+	"Isobaric mass heat capacity": 0.5,
+	"Thermal conductivity": 10
 }

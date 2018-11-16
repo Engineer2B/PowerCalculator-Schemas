@@ -9,7 +9,8 @@
 		"Acoustic attenuation",
 		"Speed of sound",
 		"Heat absorption fraction",
-		"Isobaric mass heat capacity"
+		"Isobaric mass heat capacity",
+		"Thermal conductivity"
 	],
 	"properties": {
 		"Name": {
@@ -81,11 +82,19 @@
 			]
 		},
 		"Isobaric mass heat capacity": {
-			"description": "[m^2/(K*s^2)] or, more familiar, [J/(kg K)] The ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at constant pressure.",
+			"description": "[m^2/(K s^2)] or, more familiar, [J/(kg K)] The ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at constant pressure.",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
 				0.840
+			]
+		},
+		"Thermal conductivity": {
+			"description": "[(kg m)/(s^3 T)] The property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.",
+			"type": "number",
+			"exclusiveMinimum": 0,
+			"examples": [
+				0.15
 			]
 		},
 		"Atmospheric pressure freezing point": {

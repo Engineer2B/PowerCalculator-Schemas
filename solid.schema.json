@@ -9,7 +9,8 @@
 		"Acoustic attenuation",
 		"Speed of sound",
 		"Heat absorption fraction",
-		"Isobaric mass heat capacity"
+		"Isobaric mass heat capacity",
+		"Thermal conductivity"
 	],
 	"properties": {
 		"Name": {
@@ -110,6 +111,14 @@
 			"exclusiveMinimum": 0,
 			"examples": [
 				0.840
+			]
+		},
+		"Thermal conductivity": {
+			"description": "[(kg m)/(s^3 T)] The property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.",
+			"type": "number",
+			"exclusiveMinimum": 0,
+			"examples": [
+				0.15
 			]
 		},
 		"Atmospheric pressure melting point": {
