@@ -28,9 +28,6 @@
 	"System": {
 		"Topology": "FConfiguration::Mesh",
 		"Specimen": "FConfiguration::Human",
-		"Power": 20,
-		"Frequency": 1.4e6,
-		"FocusDiameter": 0.2e-3,
 		"ObjectTransformation": {
 			"Inclination": 0,
 			"Azimuth": 1.5707963267948966,
@@ -62,7 +59,10 @@
 				"X": 0,
 				"Y": 0,
 				"Z": 0
-			}
+			},
+			"Power": 20,
+			"Frequency": 1.4e6,
+			"FocusDiameter": 0.2e-3
 		}
 	}
 }

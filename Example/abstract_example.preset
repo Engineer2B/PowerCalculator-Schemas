@@ -28,9 +28,6 @@
 	"System": {
 		"Topology": "FConfiguration::Abstract",
 		"Specimen": "FConfiguration::Human",
-		"Power": 20,
-		"Frequency": 1.4e6,
-		"FocusDiameter": 0.2e-3,
 		"ObjectTransformation": {
 			"Inclination": 0,
 			"Azimuth": 0,
@@ -62,37 +59,42 @@
 				"X": 5e-2,
 				"Y": 0,
 				"Z": 0
-			}
+			},
+			"Power": 20,
+			"Frequency": 1.4e6,
+			"FocusDiameter": 0.2e-3
 		},
 		"Abstract": {
 			"Planes": [{
-				"Medium": "FMedium::Bone",
-				"Center": {
-					"X": 3.6e-2,
-					"Y": 0,
-					"Z": 0
+					"Medium": "FMedium::Bone",
+					"Center": {
+						"X": 3.6e-2,
+						"Y": 0,
+						"Z": 0
+					},
+					"Direction": {
+						"X": -1,
+						"Y": 0,
+						"Z": 0
+					},
+					"Id": 1
 				},
-				"Direction": {
-					"X": -1,
-					"Y": 0,
-					"Z": 0
-				}
-			},
-			{
-				"Medium": "FMedium::Muscle",
-				"Center": {
-					"X": 3.6e-2,
-					"Y": 0,
-					"Z": 0
-				},
-				"Direction": {
-					"X": 1,
-					"Y": 0,
-					"Z": 0
-				}
-			}],
-			"Cylinders": [
 				{
+					"Medium": "FMedium::Muscle",
+					"Center": {
+						"X": 3.6e-2,
+						"Y": 0,
+						"Z": 0
+					},
+					"Direction": {
+						"X": 1,
+						"Y": 0,
+						"Z": 0
+					},
+					"Id": 1
+				}
+			],
+			"Cylinders": [{
 					"Medium": "FMedium::Bone",
 					"Radius": 2e-2,
 					"Center": {
@@ -104,7 +106,8 @@
 						"X": 0,
 						"Y": 0,
 						"Z": 1
-					}
+					},
+					"Id": 2
 				},
 				{
 					"Medium": "FMedium::Muscle",
@@ -118,7 +121,8 @@
 						"X": 0,
 						"Y": 0,
 						"Z": 1
-					}
+					},
+					"Id": 2
 				}
 			]
 		}

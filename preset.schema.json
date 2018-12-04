@@ -76,9 +76,6 @@
 			"required": [
 				"Topology",
 				"Specimen",
-				"Power",
-				"Frequency",
-				"FocusDiameter",
 				"ObjectTransformation",
 				"Transducer"
 			],
@@ -95,25 +92,6 @@
 					"description": "Media will be loaded from the $folder defined by FConfiguration::($folder). The weird notation results in an enum when loaded in C++.",
 					"pattern": "FConfiguration::\\w+"
 				},
-				"Power": {
-					"type": "number",
-					"description": "Total amount of power that the transducer sends out in [W].",
-					"exclusiveMinimum": 0
-				},
-				"Frequency": {
-					"type": "number",
-					"description": "Frequency at which the transducer elements oscillate in [Hz].",
-					"exclusiveMinimum": 0
-				},
-				"FocusDiameter": {
-					"type": "number",
-					"description": "Diameter of the area of focus in [m].",
-					"enum": [
-						0.2e-3,
-						0.4e-3,
-						0.8e-3
-					]
-				},
 				"ObjectTransformation": {
 					"description": "Transformation applied to the object.",
 					"$ref": "#/definitions/Transformation"
@@ -124,7 +102,10 @@
 						"ElementRadius",
 						"Transformation",
 						"NaturalFocus",
-						"Focus"
+						"Focus",
+						"Power",
+						"Frequency",
+						"FocusDiameter"
 					],
 					"description": "Settings of the transducer.",
 					"properties": {
@@ -144,14 +125,32 @@
 						"Focus": {
 							"description": "Position towards which the focus is phase-shifted in [m, m, m].",
 							"$ref": "#/definitions/Vector"
+						},
+						"Power": {
+							"type": "number",
+							"description": "Total amount of power that the transducer sends out in [W].",
+							"exclusiveMinimum": 0
+						},
+						"Frequency": {
+							"type": "number",
+							"description": "Frequency at which the transducer elements oscillate in [Hz].",
+							"exclusiveMinimum": 0
+						},
+						"FocusDiameter": {
+							"type": "number",
+							"description": "Diameter of the area of focus in [m].",
+							"enum": [
+								0.2e-3,
+								0.4e-3,
+								0.8e-3
+							]
 						}
 					}
 				},
 				"Abstract": {
 					"description": "Configuration of the abstract surface topology, currently with lists of planes and cylinders.",
 					"type": "object",
-					"anyOf": [
-						{
+					"anyOf": [{
 							"required": [
 								"Cylinders"
 							]
@@ -196,7 +195,7 @@
 									},
 									"Id": {
 										"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
-										"type":"integer",
+										"type": "integer",
 										"exclusiveMinimum": 0
 									}
 								}
@@ -228,7 +227,7 @@
 									},
 									"Id": {
 										"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
-										"type":"integer",
+										"type": "integer",
 										"exclusiveMinimum": 0
 									}
 								}
