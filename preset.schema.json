@@ -140,9 +140,9 @@
 							"type": "number",
 							"description": "Diameter of the area of focus in [m].",
 							"enum": [
-								0.2e-3,
-								0.4e-3,
-								0.8e-3
+								2e-3,
+								4e-3,
+								8e-3
 							]
 						}
 					}
