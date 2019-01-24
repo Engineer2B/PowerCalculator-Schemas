@@ -43,7 +43,6 @@
 		"*.solid": "json",
 		"*.preset": "json",
 		"*.surface": "json",
-		"*.transducer": "json",
-		"random": "cpp"
+		"*.transducer": "json"
 	}
 }
