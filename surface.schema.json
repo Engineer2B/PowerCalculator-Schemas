@@ -1,0 +1,168 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Format of the geometrical surface description.",
+	"description": "Description of the surfaces that form the boundaries of the object through which the sound waves travel.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
+	"type": "object",
+	"anyOf": [{
+			"required": [
+				"Cylinders"
+			]
+		},
+		{
+			"required": [
+				"Planes"
+			]
+		},
+		{
+			"required": [
+				"Meshes"
+			]
+		}
+	],
+	"properties": {
+		"Cylinders": {
+			"minItems": 1,
+			"type": "array",
+			"description": "Infinitely tall and cylindrical surface descriptions.",
+			"items": {
+				"type": "object",
+				"required": [
+					"Medium",
+					"Radius",
+					"Center",
+					"ShaftDirection",
+					"Id"
+				],
+				"properties": {
+					"Medium": {
+						"description": "Type of medium that the inward normal vector is pointing towards.",
+						"type": "string",
+						"pattern": "FMedium::\\w+"
+					},
+					"Radius": {
+						"description": "Radius of the cylinder in [m] (if ScaleFactor is 1).",
+						"type": "number",
+						"exclusiveMinimum": 0
+					},
+					"Center": {
+						"description": "Center of the cylinder in [m, m, m] (if ScaleFactor is 1).",
+						"$ref": "#Vector"
+					},
+					"ShaftDirection": {
+						"description": "The direction the shaft is pointed towards, i.e. the direction that is perpendicular to the base plane of the cylinder",
+						"$ref": "#Vector"
+					},
+					"Id": {
+						"$ref": "#Id"
+					}
+				}
+			}
+		},
+		"Planes": {
+			"minItems": 1,
+			"type": "array",
+			"description": "Infinite planar surfaces that are placed parallel to each other, i.e. if they don't all have the same normal vector, they will intersect yielding an incorrect topology.",
+			"items": {
+				"type": "object",
+				"required": [
+					"Medium",
+					"Center",
+					"Normal",
+					"Id"
+				],
+				"properties": {
+					"Medium": {
+						"type": "string",
+						"pattern": "FMedium::\\w+"
+					},
+					"Center": {
+						"$ref": "#Vector",
+						"description": "Location of the center of the plane"
+					},
+					"Normal": {
+						"$ref": "#Vector",
+						"description": "Direction of the normal vector to the plane."
+					},
+					"Id": {
+						"$ref": "#Id"
+					}
+				}
+			}
+		},
+		"Meshes": {
+			"minItems": 1,
+			"type": "array",
+			"description": "Descriptions of triangular surface meshes.",
+			"items": {
+				"type": "object",
+				"required": [
+					"Nodes",
+					"ElementIndices",
+					"Medium",
+					"Id"
+				],
+				"properties": {
+					"Nodes": {
+						"description": "The coordinates in space where the vertices/nodes of the mesh are located.",
+						"type": "array",
+						"items": {
+							"type": "array",
+							"minItems": 3,
+							"maxItems": 3,
+							"items": {
+								"type": "number"
+							}
+						}
+					},
+					"ElementIndices": {
+						"description": "Array of three node indices which together make up a triangle.",
+						"type": "array",
+						"items": {
+							"type": "array",
+							"minItems": 3,
+							"maxItems": 3,
+							"items": {
+								"type": "integer",
+								"exclusiveMinimum": 0
+							}
+						}
+					},
+					"Medium": {
+						"type": "string",
+						"pattern": "FMedium::\\w+",
+						"description": "The unique name of the medium."
+					},
+					"Id": {
+						"$ref": "#Id"
+					}
+				}
+			}
+		}
+	},
+	"Id": {
+		"$id": "#Id",
+		"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
+		"type": "integer",
+		"exclusiveMinimum": 0
+	},
+	"Vector": {
+		"$id": "#Vector",
+		"type": "object",
+		"required": [
+			"X",
+			"Y",
+			"Z"
+		],
+		"properties": {
+			"X": {
+				"type": "number"
+			},
+			"Y": {
+				"type": "number"
+			},
+			"Z": {
+				"type": "number"
+			}
+		}
+	}
+}

@@ -1,36 +1,18 @@
 {
-	"windows": {
-		"DataFolderPath": "D:\\PowerCalculator",
-		"Output": {
-			"RelativePath": "Output"
-		},
-		"Log": {
-			"RelativePath": "Log"
-		},
-		"Preset": {
-			"RelativePath": "Preset",
-			"FileName": "Default_Mesh.preset"
-		},
-		"Transducer": {
-			"RelativePath": "Transducer",
-			"FileName": "Positions.json"
-		}
+	"Data": ["Data"],
+	"Result": ["Result"],
+	"Log": ["Log"],
+	"Medium": ["Medium"],
+	"Preset": {
+		"Path": ["Preset"],
+		"FileName": "Default_Mesh.preset"
 	},
-	"linux": {
-		"DataFolderPath": "",
-		"Output": {
-			"RelativePath": ""
-		},
-		"Log": {
-			"RelativePath": ""
-		},
-		"Preset": {
-			"FileName": "Default_Mesh.preset",
-			"RelativePath": ""
-		},
-		"Transducer": {
-			"RelativePath": "Transducer",
-			"FileName": "Positions.json"
-		}
+	"Transducer": {
+		"Path": ["Transducer"],
+		"FileName": "Version 1.transducer"
+	},
+	"Surface": {
+		"Path": ["Surface"],
+		"FileName": "Test.surface"
 	}
 }

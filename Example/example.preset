@@ -1,6 +1,4 @@
 {
-	"Name": "Mesh_Example",
-	"Description": "Example configuration with mesh topology",
 	"Sampling": {
 		"LatticeSpacing": {
 			"X": 2.44140625e-04,
@@ -26,8 +24,6 @@
 		"ThetaMax": 0.69
 	},
 	"System": {
-		"Topology": "FConfiguration::Mesh",
-		"Specimen": "FConfiguration::Human",
 		"ObjectTransformation": {
 			"Inclination": 0,
 			"Azimuth": 1.5707963267948966,
@@ -38,8 +34,7 @@
 				"Z": 0
 			}
 		},
-		"Transducer": {
-			"ElementRadius": 3.5e-3,
+		"TransducerSettings": {
 			"Transformation": {
 				"Inclination": 0,
 				"Azimuth": 0,
@@ -50,11 +45,6 @@
 					"Z": 0
 				}
 			},
-			"NaturalFocus": {
-				"X": 0,
-				"Y": 0,
-				"Z": 0
-			},
 			"Focus": {
 				"X": 0,
 				"Y": 0,
@@ -62,7 +52,7 @@
 			},
 			"Power": 20,
 			"Frequency": 1.4e6,
-			"FocusDiameter": 0.2e-3
+			"FocusDiameter": 2e-3
 		}
 	}
 }

@@ -4,142 +4,89 @@
 	"description": "Global settings file for the power calculator application.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
 	"required": [
-		"windows"
+		"Data",
+		"Medium",
+		"Result",
+		"Log",
+		"Transducer",
+		"Surface",
+		"Preset"
 	],
-	"properties": {
-		"windows": {
-			"allOf": [
-				{
-					"title": "windows",
-					"description": "Settings for windows environments."
-				},
-				{
-					"$ref": "#/definitions/settings"
-				}
-			]
-		},
-		"linux": {
-			"allOf": [
-				{
-					"title": "linux",
-					"description": "Settings for linux environments."
-				},
-				{
-					"$ref": "#/definitions/settings"
-				}
-			]
+	"DirectoryPath": {
+		"$id": "#DirectoryPath",
+		"type": "array",
+		"minItems": 1,
+		"items": {
+			"type": "string",
+			"description": "Part of the path to a file or folder.",
+			"pattern": "^[\\w\\-. ;]{1,254}"
 		}
 	},
-	"definitions": {
-		"relative_path": {
-			"properties": {
-				"RelativePath": {
-					"type": "string",
-					"title": "Relative folder path",
-					"description": "The relative path to the folder, e.g. for the folder 'xyz' in d:\\data\\xyz the value would be 'xyz'"
-				}
-			},
-			"required": [
-				"RelativePath"
-			]
+	"properties": {
+		"Data": {
+			"description": "The folder from which all relative paths are calculated.",
+			"$ref": "#DirectoryPath"
 		},
-		"settings": {
+		"Medium": {
+			"description": "Medium will be loaded from .fluid and .solid files at the '${DataPath}\\${MediumPath}' path.",
+			"$ref": "#DirectoryPath"
+		},
+		"Result": {
+			"description": "The path to the results folder",
+			"$ref": "#DirectoryPath"
+		},
+		"Log": {
+			"description": "Path to the folder where log files are saved.",
+			"$ref": "#DirectoryPath"
+		},
+		"Transducer": {
 			"type": "object",
 			"required": [
-				"Output",
-				"Log",
-				"Preset",
-				"DataFolderPath"
+				"Path",
+				"FileName"
 			],
+			"description": "The path to the folder and file where the transducer settings are stored.",
 			"properties": {
-				"DataFolderPath": {
+				"Path": {
+					"$ref": "#DirectoryPath"
+				},
+				"FileName": {
 					"type": "string",
-					"title": "Data folder path",
-					"description": "The root folder of the data folder from which all relative paths are calculated."
+					"pattern": "^[\\w\\-. ;]+\\.transducer$"
+				}
+			}
+		},
+		"Preset": {
+			"type": "object",
+			"required": [
+				"Path",
+				"FileName"
+			],
+			"description": "The path to the folder and file where the presets are stored.",
+			"properties": {
+				"Path": {
+					"$ref": "#DirectoryPath"
 				},
-				"Output": {
-					"type": "object",
-					"title": "Output folder path",
-					"description": "The path to the output folder",
-					"$ref": "#/definitions/relative_path"
+				"FileName": {
+					"type": "string",
+					"pattern": "^[\\w\\-. ;]+\\.preset$"
+				}
+			}
+		},
+		"Surface": {
+			"type": "object",
+			"required": [
+				"Path",
+				"FileName"
+			],
+			"description": "The path to the folder and file where the surfaces are stored.",
+			"properties": {
+				"Path": {
+					"$ref": "#DirectoryPath"
 				},
-				"Log": {
-					"type": "object",
-					"title": "Log folder path",
-					"description": "The path to the folder where errors and such are logged to.",
-					"$ref": "#/definitions/relative_path"
-				},
-				"Transducer": {
-					"allOf": [
-						{
-							"type": "object",
-							"title": "Transducer folder path",
-							"description": "The path to the folder where the transducer positions are stored.",
-							"required": [
-								"FileName"
-							],
-							"properties": {
-								"FileName": {
-									"type": "string",
-									"title": "File name",
-									"description": "The name of the transducer position file.",
-									"default": "Positions.json",
-									"pattern": ".*\\.json$"
-								}
-							}
-						},
-						{
-							"$ref": "#/definitions/relative_path"
-						}
-					]
-				},
-				"Preset": {
-					"allOf": [
-						{
-							"type": "object",
-							"title": "Preset",
-							"description": "Preset folder properties.",
-							"required": [
-								"FileName"
-							],
-							"properties": {
-								"FileName": {
-									"type": "string",
-									"title": "File name",
-									"description": "The name of the preset file.",
-									"default": "Default_Mesh.preset",
-									"pattern": ".*\\.preset$"
-								}
-							}
-						},
-						{
-							"$ref": "#/definitions/relative_path"
-						}
-					]
-				},
-				"Mesh": {
-					"allOf": [
-						{
-							"type": "object",
-							"title": "Mesh",
-							"description": "Mesh folder properties.",
-							"required": [
-								"FileName"
-							],
-							"properties": {
-								"FileName": {
-									"type": "string",
-									"title": "File name",
-									"description": "The name of the mesh file.",
-									"default": "MuscleAndBone.msh",
-									"pattern": ".*\\.([mM][sS][hH]|[dD][iI][cC][oO][mM])"
-								}
-							}
-						},
-						{
-							"$ref": "#/definitions/relative_path"
-						}
-					]
+				"FileName": {
+					"type": "string",
+					"pattern": "^[\\w\\-. ;]+\\.surface$"
 				}
 			}
 		}

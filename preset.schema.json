@@ -4,19 +4,10 @@
 	"description": "Settings file for the acoustic system describing the sample space, beam and topology.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
 	"required": [
-		"Name",
 		"Sampling",
 		"System"
 	],
 	"properties": {
-		"Name": {
-			"type": "string",
-			"description": "Name of this configuration."
-		},
-		"Description": {
-			"type": "string",
-			"description": "User-friendly description of this configuration."
-		},
 		"Sampling": {
 			"type": "object",
 			"description": "Settings of the sampling space.",
@@ -30,11 +21,11 @@
 			"properties": {
 				"LatticeSpacing": {
 					"description": "Spacing between points inside the lattice box in [m, m, m].",
-					"$ref": "#/definitions/Vector"
+					"$ref": "#Vector"
 				},
 				"LatticeExtrema": {
 					"type": "object",
-					"description": "Maximal and minimal values that describe the lattice box in [m].",
+					"description": "Minimal and maximal values that describe the lattice box in [m].",
 					"required": [
 						"X",
 						"Y",
@@ -42,13 +33,16 @@
 					],
 					"properties": {
 						"X": {
-							"$ref": "#/definitions/Extremum"
+							"description": "Minimal and maximal X values of the box in [m].",
+							"$ref": "#Extremum"
 						},
 						"Y": {
-							"$ref": "#/definitions/Extremum"
+							"description": "Minimal and maximal Y values of the box in [m].",
+							"$ref": "#Extremum"
 						},
 						"Z": {
-							"$ref": "#/definitions/Extremum"
+							"description": "Minimal and maximal Z values of the box in [m].",
+							"$ref": "#Extremum"
 						}
 					}
 				},
@@ -74,34 +68,18 @@
 			"type": "object",
 			"description": "Settings of the system configuration.",
 			"required": [
-				"Topology",
-				"Specimen",
 				"ObjectTransformation",
-				"Transducer"
+				"TransducerSettings"
 			],
 			"properties": {
-				"Topology": {
-					"description": "Type of topology that will be used to describe the ablated object.",
-					"enum": [
-						"FConfiguration::Abstract",
-						"FConfiguration::Mesh"
-					]
-				},
-				"Specimen": {
-					"type": "string",
-					"description": "Media will be loaded from the $folder defined by FConfiguration::($folder). The weird notation results in an enum when loaded in C++.",
-					"pattern": "FConfiguration::\\w+"
-				},
 				"ObjectTransformation": {
 					"description": "Transformation applied to the object.",
-					"$ref": "#/definitions/Transformation"
+					"$ref": "#Transformation"
 				},
-				"Transducer": {
+				"TransducerSettings": {
 					"type": "object",
 					"required": [
-						"ElementRadius",
 						"Transformation",
-						"NaturalFocus",
 						"Focus",
 						"Power",
 						"Frequency",
@@ -109,22 +87,13 @@
 					],
 					"description": "Settings of the transducer.",
 					"properties": {
-						"ElementRadius": {
-							"type": "number",
-							"exclusiveMinimum": 0,
-							"description": "Radius of the transducer element in [m]."
-						},
 						"Transformation": {
 							"description": "Transformation applied to the transducer positions and natural focus.",
-							"$ref": "#/definitions/Transformation"
-						},
-						"NaturalFocus": {
-							"description": "Unshifted focus of the transducer in [m, m, m] (if ScaleFactor is 1).",
-							"$ref": "#/definitions/Vector"
+							"$ref": "#Transformation"
 						},
 						"Focus": {
 							"description": "Position towards which the focus is phase-shifted in [m, m, m].",
-							"$ref": "#/definitions/Vector"
+							"$ref": "#Vector"
 						},
 						"Power": {
 							"type": "number",
@@ -146,157 +115,67 @@
 							]
 						}
 					}
-				},
-				"Abstract": {
-					"description": "Configuration of the abstract surface topology, currently with lists of planes and cylinders.",
-					"type": "object",
-					"anyOf": [{
-							"required": [
-								"Cylinders"
-							]
-						},
-						{
-							"required": [
-								"Planes"
-							]
-						}
-					],
-					"properties": {
-						"Cylinders": {
-							"type": "array",
-							"description": "Infinitely tall cylindrical surface.",
-							"items": {
-								"type": "object",
-								"required": [
-									"Medium",
-									"Radius",
-									"Center",
-									"Direction",
-									"Id"
-								],
-								"properties": {
-									"Medium": {
-										"description": "Type of medium that the inward normal vector is pointing towards.",
-										"type": "string",
-										"pattern": "FMedium::\\w+"
-									},
-									"Radius": {
-										"description": "Radius of the cylinder in [m] (if ScaleFactor is 1).",
-										"type": "number",
-										"exclusiveMinimum": 0
-									},
-									"Center": {
-										"description": "Center of the cylinder in [m, m, m] (if ScaleFactor is 1).",
-										"$ref": "#/definitions/Vector"
-									},
-									"Direction": {
-										"description": "The direction that is perpendicular to the axis of the cylinder, i.e. the direction the shaft is pointed towards.",
-										"$ref": "#/definitions/Vector"
-									},
-									"Id": {
-										"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
-										"type": "integer",
-										"exclusiveMinimum": 0
-									}
-								}
-							}
-						},
-						"Planes": {
-							"type": "array",
-							"description": "Infinite planar surfaces that are placed parallel to each other, i.e. if they don't all have the same normal vector, they will intersect yielding an incorrect topology.",
-							"items": {
-								"type": "object",
-								"required": [
-									"Medium",
-									"Center",
-									"Direction",
-									"Id"
-								],
-								"properties": {
-									"Medium": {
-										"type": "string",
-										"pattern": "FMedium::\\w+"
-									},
-									"Center": {
-										"$ref": "#/definitions/Vector",
-										"description": "Location of the center of the plane"
-									},
-									"Direction": {
-										"$ref": "#/definitions/Vector",
-										"description": "Direction of the normal vector to the plane."
-									},
-									"Id": {
-										"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
-										"type": "integer",
-										"exclusiveMinimum": 0
-									}
-								}
-							}
-						}
-					}
 				}
-			},
-			"if": {
-				"properties": {
-					"Topology": {
-						"enum": [
-							"FConfiguration::Abstract"
-						]
-					}
-				}
-			},
-			"then": {
-				"required": [
-					"Abstract"
-				]
 			}
 		}
 	},
-	"definitions": {
-		"Extremum": {
-			"properties": {
-				"Min": {
-					"type": "number",
-					"description": "The minimimal value."
-				},
-				"Max": {
-					"type": "number",
-					"description": "The maximal value."
-				}
+	"Extremum": {
+		"$id": "#Extremum",
+		"properties": {
+			"Min": {
+				"type": "number",
+				"description": "The minimimal value."
+			},
+			"Max": {
+				"type": "number",
+				"description": "The maximal value."
 			}
-		},
-		"Vector": {
-			"type": "object",
-			"required": [
-				"X",
-				"Y",
-				"Z"
-			]
-		},
-		"Transformation": {
-			"required": [
-				"Inclination",
-				"Azimuth",
-				"ScaleFactor",
-				"Translation"
-			],
-			"properties": {
-				"Inclination": {
-					"type": "number",
-					"description": "X or Y axis rotation angle in radians."
-				},
-				"Azimuth": {
-					"type": "number",
-					"description": "Z axis rotation angle in radians."
-				},
-				"ScaleFactor": {
-					"type": "number",
-					"description": "Scalar multiplier."
-				},
-				"Translation": {
-					"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
-					"$ref": "#/definitions/Vector"
-				}
+		}
+	},
+	"Vector": {
+		"$id": "#Vector",
+		"type": "object",
+		"required": [
+			"X",
+			"Y",
+			"Z"
+		],
+		"properties": {
+			"X": {
+				"type": "number"
+			},
+			"Y": {
+				"type": "number"
+			},
+			"Z": {
+				"type": "number"
+			}
+		}
+	},
+	"Transformation": {
+		"$id": "#Transformation",
+		"required": [
+			"Inclination",
+			"Azimuth",
+			"ScaleFactor",
+			"Translation"
+		],
+		"properties": {
+			"Inclination": {
+				"type": "number",
+				"description": "X or Y axis rotation angle in radians."
+			},
+			"Azimuth": {
+				"type": "number",
+				"description": "Z axis rotation angle in radians."
+			},
+			"ScaleFactor": {
+				"type": "number",
+				"description": "Scalar multiplier."
+			},
+			"Translation": {
+				"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
+				"$ref": "#Vector"
 			}
 		}
 	}

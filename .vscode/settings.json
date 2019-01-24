@@ -26,9 +26,9 @@
 		},
 		{
 			"fileMatch": [
-				"*.surfacemesh"
+				"*.surface"
 			],
-			"url": "./surfacemesh.schema.json"
+			"url": "./surface.schema.json"
 		},
 		{
 			"fileMatch": [
@@ -42,7 +42,7 @@
 		"*.fluid": "json",
 		"*.solid": "json",
 		"*.preset": "json",
-		"*.surfacemesh": "json",
+		"*.surface": "json",
 		"*.transducer": "json",
 		"random": "cpp"
 	}
