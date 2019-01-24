@@ -1,0 +1,85 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"Extremum": {
+		"$id": "#Extremum",
+		"properties": {
+			"Min": {
+				"type": "number",
+				"description": "The minimimal value."
+			},
+			"Max": {
+				"type": "number",
+				"description": "The maximal value."
+			}
+		}
+	},
+	"PositiveRange": {
+		"$id": "#PositiveRange",
+		"type": "object",
+		"required": ["Minimum", "Maximum", "MultipleOf"],
+		"properties": {
+			"Minimum": {
+				"type": "number",
+				"description": "The minimal value.",
+				"exclusiveMinimum": 0
+			},
+			"Maximum": {
+				"type": "number",
+				"description": "The maximal value.",
+				"exclusiveMinimum": 0
+			},
+			"MultipleOf": {
+				"type": "number",
+				"description": "The step size of the range.",
+				"exclusiveMinimum": 0
+			}
+		}
+	},
+	"Vector": {
+		"$id": "#Vector",
+		"type": "object",
+		"required": [
+			"X",
+			"Y",
+			"Z"
+		],
+		"properties": {
+			"X": {
+				"type": "number"
+			},
+			"Y": {
+				"type": "number"
+			},
+			"Z": {
+				"type": "number"
+			}
+		}
+	},
+	"Transformation": {
+		"$id": "#Transformation",
+		"required": [
+			"Inclination",
+			"Azimuth",
+			"ScaleFactor",
+			"Translation"
+		],
+		"properties": {
+			"Inclination": {
+				"type": "number",
+				"description": "X or Y axis rotation angle in radians."
+			},
+			"Azimuth": {
+				"type": "number",
+				"description": "Z axis rotation angle in radians."
+			},
+			"ScaleFactor": {
+				"type": "number",
+				"description": "Scalar multiplier."
+			},
+			"Translation": {
+				"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
+				"$ref": "#Vector"
+			}
+		}
+	}
+}
