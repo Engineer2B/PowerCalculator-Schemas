@@ -29,6 +29,12 @@
 				"*.surfacemesh"
 			],
 			"url": "./surfacemesh.schema.json"
+		},
+		{
+			"fileMatch": [
+				"*.transducer"
+			],
+			"url": "./transducer.schema.json"
 		}
 	],
 	"files.associations": {
@@ -37,6 +43,7 @@
 		"*.solid": "json",
 		"*.preset": "json",
 		"*.surfacemesh": "json",
+		"*.transducer": "json",
 		"random": "cpp"
 	}
 }

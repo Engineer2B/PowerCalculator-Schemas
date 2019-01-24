@@ -1,0 +1,115 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Properties of the HIFU transducer",
+	"description": "Properties and capabilities of an High Intensity Focused Ultrasound transducer.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
+	"type": "object",
+	"required": [
+		"Powers",
+		"Frequencies",
+		"FocusDiameters",
+		"ElementCoordinates",
+		"ElementRadius",
+		"ImmersionMedium"
+	],
+	"properties": {
+		"Powers": {
+			"type": "object",
+			"description": "The supported range of the power in [W].",
+			"$ref": "#PositiveRange"
+		},
+		"Frequencies": {
+			"type": "object",
+			"description": "The supported range of the frequency in [Hz].",
+			"$ref": "#PositiveRange"
+		},
+		"FocusRadii": {
+			"type": "object",
+			"description": "The supported range of the radius of focus in [m].",
+			"$ref": "#PositiveRange"
+		},
+		"ElementCoordinates": {
+			"type": "object",
+			"required": ["X", "Y", "Z"],
+			"description": "The coordinates of the transducer elements in [m].",
+			"properties": {
+				"X": {
+					"type": "array",
+					"description": "X coordinates of the transducer elements in [m].",
+					"items": {
+						"type": "number"
+					}
+				},
+				"Y": {
+					"type": "array",
+					"description": "Y coordinates of the transducer elements in [m].",
+					"items": {
+						"type": "number"
+					}
+				},
+				"Z": {
+					"type": "array",
+					"description": "Z coordinates of the transducer elements in [m].",
+					"items": {
+						"type": "number"
+					}
+				}
+			}
+		},
+		"ElementRadius": {
+			"type": "number",
+			"exclusiveMinimum": 0
+		},
+		"ImmersionMedium": {
+			"type": "string",
+			"description": "The name of the fluid in which the transducer is immersed and which is described by a corresponding ${name}.fluid file.",
+			"minLength": 1,
+			"pattern": "^[\\w\\-. ]+$"
+		},
+		"NaturalFocus": {
+			"description": "Unshifted focus of the transducer in [m, m, m] (if ScaleFactor is 1).",
+			"$ref": "#Vector"
+		}
+	},
+	"PositiveRange": {
+		"$id": "#PositiveRange",
+		"type": "object",
+		"required": ["Minimum", "Maximum", "MultipleOf"],
+		"properties": {
+			"Minimum": {
+				"type": "number",
+				"description": "The minimal value.",
+				"exclusiveMinimum": 0
+			},
+			"Maximum": {
+				"type": "number",
+				"description": "The maximal value.",
+				"exclusiveMinimum": 0
+			},
+			"MultipleOf": {
+				"type": "number",
+				"description": "The step size of the range.",
+				"exclusiveMinimum": 0
+			}
+		}
+	},
+	"Vector": {
+		"$id": "#Vector",
+		"type": "object",
+		"required": [
+			"X",
+			"Y",
+			"Z"
+		],
+		"properties": {
+			"X": {
+				"type": "number"
+			},
+			"Y": {
+				"type": "number"
+			},
+			"Z": {
+				"type": "number"
+			}
+		}
+	}
+}
