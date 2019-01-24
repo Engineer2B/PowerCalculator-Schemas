@@ -19,7 +19,7 @@
 		"items": {
 			"type": "string",
 			"description": "Part of the path to a file or folder.\nAvailable variables:\n$SourceCodeRootPath - to refer to the root of the source code.",
-			"pattern": "^[$\\w\\-. ;]{1,254}"
+			"pattern": "^[$\\w\\-. ;\\+]{1,254}"
 		}
 	},
 	"properties": {
@@ -52,7 +52,7 @@
 				},
 				"FileName": {
 					"type": "string",
-					"pattern": "^[\\w\\-. ;]+\\.transducer$"
+					"pattern": "^[\\w\\-. ;\\+]+\\.transducer$"
 				}
 			}
 		},
@@ -69,7 +69,7 @@
 				},
 				"FileName": {
 					"type": "string",
-					"pattern": "^[\\w\\-. ;]+\\.preset$"
+					"pattern": "^[\\w\\-. ;\\+]+\\.preset$"
 				}
 			}
 		},
@@ -86,7 +86,7 @@
 				},
 				"FileName": {
 					"type": "string",
-					"pattern": "^[\\w\\-. ;]+\\.surface$"
+					"pattern": "^[\\w\\-. ;\\+]+\\.surface$"
 				}
 			}
 		}

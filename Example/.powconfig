@@ -9,7 +9,7 @@
 	},
 	"Transducer": {
 		"Path": ["Transducer"],
-		"FileName": "Version 1.transducer"
+		"FileName": "Version 1+2.transducer"
 	},
 	"Surface": {
 		"Path": ["Surface"],
