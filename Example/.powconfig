@@ -1,5 +1,5 @@
 {
-	"Data": ["Data"],
+	"Data": ["$SourceCodeRootPath","Data"],
 	"Result": ["Result"],
 	"Log": ["Log"],
 	"Medium": ["Medium"],

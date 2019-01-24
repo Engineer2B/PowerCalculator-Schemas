@@ -18,8 +18,8 @@
 		"minItems": 1,
 		"items": {
 			"type": "string",
-			"description": "Part of the path to a file or folder.",
-			"pattern": "^[\\w\\-. ;]{1,254}"
+			"description": "Part of the path to a file or folder.\nAvailable variables:\n$SourceCodeRootPath - to refer to the root of the source code.",
+			"pattern": "^[$\\w\\-. ;]{1,254}"
 		}
 	},
 	"properties": {
@@ -32,7 +32,7 @@
 			"$ref": "#DirectoryPath"
 		},
 		"Result": {
-			"description": "The path to the results folder",
+			"description": "The path to the results folder.",
 			"$ref": "#DirectoryPath"
 		},
 		"Log": {
