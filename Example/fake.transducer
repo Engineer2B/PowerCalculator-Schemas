@@ -10,17 +10,16 @@
 		"Z": [-1e-2, 4, 5e2]
 	},
 	"ElementRadius": 9999e-3,
-	"FocusRadii": {
-		"Minimum": 2e-1,
-		"Maximum": 12e-1,
-		"MultipleOf": 2e-1
-	},
 	"Frequencies": {
 		"Minimum": 10e8,
 		"Maximum": 12e8,
 		"MultipleOf": 1e7
 	},
-	"FocusDiameters": [5e-3, 6e-3, 7e-3],
+	"FocusDiameters": {
+		"Minimum": 1,
+		"Maximum": 50,
+		"MultipleOf": 1
+	},
 	"ImmersionMedium": "LiquifiedFluid",
 	"NaturalFocus": {
 		"X": 0,

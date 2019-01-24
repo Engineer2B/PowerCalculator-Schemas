@@ -22,9 +22,9 @@
 			"description": "The supported range of the frequency in [Hz].",
 			"$ref": "#PositiveRange"
 		},
-		"FocusRadii": {
+		"FocusDiameters": {
 			"type": "object",
-			"description": "The supported range of the radius of focus in [m].",
+			"description": "The supported range of the diameter of focus in [m].",
 			"$ref": "#PositiveRange"
 		},
 		"ElementCoordinates": {
