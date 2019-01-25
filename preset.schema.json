@@ -79,7 +79,6 @@
 				"TransducerSettings": {
 					"type": "object",
 					"required": [
-						"Transformation",
 						"Focus",
 						"Power",
 						"Frequency",
@@ -87,10 +86,6 @@
 					],
 					"description": "Settings of the transducer.",
 					"properties": {
-						"Transformation": {
-							"description": "Transformation applied to the transducer positions and natural focus.",
-							"$ref": "#Transformation"
-						},
 						"Focus": {
 							"description": "Position towards which the focus is phase-shifted in [m, m, m].",
 							"$ref": "#Vector"
