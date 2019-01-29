@@ -1,6 +1,6 @@
 {
 	"Planes": [{
-			"Medium": "FMedium::Bone",
+			"MediumName": "Bone",
 			"Center": {
 				"X": 3.6e-2,
 				"Y": 0,
@@ -14,7 +14,7 @@
 			"Id": 1
 		},
 		{
-			"Medium": "FMedium::Muscle",
+			"MediumName": "Muscle",
 			"Center": {
 				"X": 3.6e-2,
 				"Y": 0,
@@ -29,7 +29,7 @@
 		}
 	],
 	"Cylinders": [{
-			"Medium": "FMedium::Bone",
+			"MediumName": "Bone",
 			"Radius": 2e-2,
 			"Center": {
 				"X": 5e-2,
@@ -44,7 +44,7 @@
 			"Id": 2
 		},
 		{
-			"Medium": "FMedium::Muscle",
+			"MediumName": "Muscle",
 			"Radius": 2e-2,
 			"Center": {
 				"X": 5e-2,
@@ -61,7 +61,7 @@
 	],
 	"Meshes": [{
 		"Id": 1,
-		"Medium": "FMedium::Bone",
+		"MediumName": "Bone",
 		"Nodes": [
 			[-2.37223e2, -6.94408e1, 1.03987e3],
 			[-2.36448e2, -7.07207e1, 1.03931e3],

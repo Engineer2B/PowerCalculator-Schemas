@@ -27,17 +27,17 @@
 			"items": {
 				"type": "object",
 				"required": [
-					"Medium",
+					"MediumName",
 					"Radius",
 					"Center",
 					"ShaftDirection",
 					"Id"
 				],
 				"properties": {
-					"Medium": {
-						"description": "Type of medium that the inward normal vector is pointing towards.",
+					"MediumName": {
 						"type": "string",
-						"pattern": "FMedium::\\w+"
+						"description": "Type of medium that the inward normal vector is pointing towards.",
+						"minLength": 1
 					},
 					"Radius": {
 						"description": "Radius of the cylinder in [m] (if ScaleFactor is 1).",
@@ -65,15 +65,16 @@
 			"items": {
 				"type": "object",
 				"required": [
-					"Medium",
+					"MediumName",
 					"Center",
 					"Normal",
 					"Id"
 				],
 				"properties": {
-					"Medium": {
+					"MediumName": {
 						"type": "string",
-						"pattern": "FMedium::\\w+"
+						"description": "The unique name of the medium.",
+						"minLength": 1
 					},
 					"Center": {
 						"$ref": "#Vector",
@@ -98,7 +99,7 @@
 				"required": [
 					"Nodes",
 					"ElementIndices",
-					"Medium",
+					"MediumName",
 					"Id"
 				],
 				"properties": {
@@ -127,9 +128,9 @@
 							}
 						}
 					},
-					"Medium": {
+					"MediumName": {
 						"type": "string",
-						"pattern": "FMedium::\\w+",
+						"minLength": 1,
 						"description": "The unique name of the medium."
 					},
 					"Id": {
