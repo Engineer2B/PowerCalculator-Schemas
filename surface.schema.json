@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"title": "Format of the geometrical surface description.",
+	"title": "Format of the geometrical triangle-surface description.",
 	"description": "Description of the surfaces that form the boundaries of the object through which the sound waves travel.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
 	"anyOf": [{

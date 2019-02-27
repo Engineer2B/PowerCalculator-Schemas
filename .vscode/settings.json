@@ -32,6 +32,12 @@
 		},
 		{
 			"fileMatch": [
+				"*.volume"
+			],
+			"url": "./volume.schema.json"
+		},
+		{
+			"fileMatch": [
 				"*.transducer"
 			],
 			"url": "./transducer.schema.json"
@@ -43,6 +49,7 @@
 		"*.solid": "json",
 		"*.preset": "json",
 		"*.surface": "json",
+		"*.volume": "json",
 		"*.transducer": "json"
 	}
 }
