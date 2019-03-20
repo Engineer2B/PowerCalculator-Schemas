@@ -14,5 +14,9 @@
 	"Surface": {
 		"Path": ["Surface"],
 		"FileName": "Test.surface"
+	},
+	"Volume": {
+		"Path": ["Volume"],
+		"FileName": "Test.volume"
 	}
 }

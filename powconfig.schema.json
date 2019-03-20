@@ -89,6 +89,23 @@
 					"pattern": "^[\\w\\-. ;\\+]+\\.surface$"
 				}
 			}
+		},
+		"Volume": {
+			"type": "object",
+			"required": [
+				"Path",
+				"FileName"
+			],
+			"description": "The path to the folder and file where the volumes are stored.",
+			"properties": {
+				"Path": {
+					"$ref": "#DirectoryPath"
+				},
+				"FileName": {
+					"type": "string",
+					"pattern": "^[\\w\\-. ;\\+]+\\.volume$"
+				}
+			}
 		}
 	}
 }
