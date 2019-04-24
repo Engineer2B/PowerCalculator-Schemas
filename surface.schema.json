@@ -144,7 +144,7 @@
 		"$id": "#Id",
 		"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
 		"type": "integer",
-		"exclusiveMinimum": 0
+		"exclusiveMinimum": -1
 	},
 	"Vector": {
 		"$id": "#Vector",
