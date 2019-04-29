@@ -18,7 +18,7 @@
 		"minItems": 1,
 		"items": {
 			"type": "string",
-			"description": "Part of the path to a file or folder.\nAvailable variables:\n$SourceCodeRootPath - to refer to the root of the source code.",
+			"description": "Part of the path to a file or folder.\nAvailable variables:\n$SourceCodeRootPath - to refer to the root of the source code.\n$DropboxRootPath - to refer to the Dropbox folder (if it exists).",
 			"pattern": "^[$\\w\\-. ;\\+]{1,254}"
 		}
 	},
@@ -32,11 +32,11 @@
 			"$ref": "#DirectoryPath"
 		},
 		"Result": {
-			"description": "The path to the results folder.",
+			"description": "Results will be placed in the '${DataPath}\\${ResultPath}' path.",
 			"$ref": "#DirectoryPath"
 		},
 		"Log": {
-			"description": "Path to the folder where log files are saved.",
+			"description": "Log files can be directed to the '${DataPath}\\${LogPath}' path.",
 			"$ref": "#DirectoryPath"
 		},
 		"Transducer": {
@@ -45,7 +45,7 @@
 				"Path",
 				"FileName"
 			],
-			"description": "The path to the folder and file where the transducer settings are stored.",
+			"description": "The path to the folder and file where the transducer settings are stored relative to the ${DataPath} path.",
 			"properties": {
 				"Path": {
 					"$ref": "#DirectoryPath"
@@ -62,7 +62,7 @@
 				"Path",
 				"FileName"
 			],
-			"description": "The path to the folder and file where the presets are stored.",
+			"description": "The path to the folder and file where the presets are stored. This path is relative to the ${DataPath} path.",
 			"properties": {
 				"Path": {
 					"$ref": "#DirectoryPath"
@@ -79,7 +79,7 @@
 				"Path",
 				"FileName"
 			],
-			"description": "The path to the folder and file where the surfaces are stored.",
+			"description": "The path to the folder and file where the surfaces are stored. This path is relative to the ${DataPath} path.",
 			"properties": {
 				"Path": {
 					"$ref": "#DirectoryPath"
@@ -96,7 +96,7 @@
 				"Path",
 				"FileName"
 			],
-			"description": "The path to the folder and file where the volumes are stored.",
+			"description": "The path to the folder and file where the volumes are stored. This path is relative to the ${DataPath} path.",
 			"properties": {
 				"Path": {
 					"$ref": "#DirectoryPath"
