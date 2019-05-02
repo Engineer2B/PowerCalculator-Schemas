@@ -76,7 +76,7 @@
 			}
 		},
 		"Density": {
-			"description": "[kg/m^3] The amount of mass per volume.\nCan also be an equation string with parameter 'T' for temperature in [K].\nSee also: https://en.wikipedia.org/wiki/Density.",
+			"description": "[kg/(m^3)] The amount of mass per volume.\nCan also be an equation string with parameter 'T' for temperature in [K].\nSee also: https://en.wikipedia.org/wiki/Density.",
 			"oneOf": [
 				{
 					"type": "number",
@@ -106,7 +106,7 @@
 			]
 		},
 		"Isobaric mass heat capacity": {
-			"description": "[m^2/(K*s^2)] or, more familiar, [J/(kg K)] The ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at constant pressure.",
+			"description": "in [(m^2)/(K s^2)] or, more familiar, [J/(kg K)].\nThe ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at constant pressure.",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
@@ -114,7 +114,7 @@
 			]
 		},
 		"Thermal conductivity": {
-			"description": "[(kg m)/(s^3 T)] The property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.",
+			"description": "in [(kg m)/(s^3 K)] or, more familiar, [(W m)/K].\nThe property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
