@@ -31,7 +31,7 @@
 			],
 			"properties": {
 				"Longitudinal": {
-					"description": "[m/s] The speed of sound of a wave that oscillates in the traveling direction.\nSee also https://en.wikipedia.org/wiki/Speed_of_sound.",
+					"description": "The speed of sound of a wave that oscillates in the traveling direction.\n🔗https://en.wikipedia.org/wiki/Speed_of_sound \nUnit: [m/s].",
 					"type": "number",
 					"exclusiveMinimum": 0,
 					"examples": [
@@ -39,7 +39,7 @@
 					]
 				},
 				"Transversal": {
-					"description": "[m/s] The speed of sound of a wave that oscillates in the direction that is transverse to the traveling direction.\nSee also https://en.wikipedia.org/wiki/Speed_of_sound.",
+					"description": "The speed of sound of a wave that oscillates in the direction that is transverse to the traveling direction.\n🔗https://en.wikipedia.org/wiki/Speed_of_sound \nUnit: [m/s].",
 					"type": "number",
 					"exclusiveMinimum": 0,
 					"examples": [
@@ -56,7 +56,7 @@
 			],
 			"properties": {
 				"Longitudinal": {
-					"description": "[Np/m] The acoustic attenuation of a wave that oscillates in the longitudinal direction.\nCan also be an equation string with parameter 'T' for temperature in [K].\nSee also https://en.wikipedia.org/wiki/Attenuation and https://en.wikipedia.org/wiki/Neper.",
+					"description": "The acoustic attenuation of a wave that oscillates in the longitudinal direction.\nCan also be an equation string with parameter 'T' for temperature in [K].\n🔗https://en.wikipedia.org/wiki/Attenuation \n🔗https://en.wikipedia.org/wiki/Neper \nUnit: [Np/m].",
 					"type": "number",
 					"inclusiveMinimum": 0,
 					"examples": [
@@ -65,7 +65,7 @@
 					]
 				},
 				"Transversal": {
-					"description": "[Np/m] The acoustic attenuation of a wave that oscillates in the transversal direction.\nCan also be an equation string with parameter 'T' for temperature in [K].\nSee also https://en.wikipedia.org/wiki/Attenuation and https://en.wikipedia.org/wiki/Neper.",
+					"description": "The acoustic attenuation of a wave that oscillates in the transversal direction.\nCan also be an equation string with parameter 'T' for temperature in [K].\n🔗https://en.wikipedia.org/wiki/Attenuation \n🔗https://en.wikipedia.org/wiki/Neper \nUnit: [Np/m].",
 					"type": "number",
 					"inclusiveMinimum": 0,
 					"examples": [
@@ -76,7 +76,7 @@
 			}
 		},
 		"Density": {
-			"description": "[kg/(m^3)] The amount of mass per volume.\nCan also be an equation string with parameter 'T' for temperature in [K].\nSee also: https://en.wikipedia.org/wiki/Density.",
+			"description": "The amount of mass per volume.\nCan also be an equation string with parameter 'T' for temperature in [K].\n 🔗https://en.wikipedia.org/wiki/Density \nUnit: [kg/(m^3)].",
 			"oneOf": [
 				{
 					"type": "number",
@@ -95,7 +95,7 @@
 			]
 		},
 		"Heat absorption fraction": {
-			"description": "[-] The fraction of the heat that contributes to a temperature increase.",
+			"description": "The fraction of the heat that contributes to a temperature increase.\nUnit: [-].",
 			"type": "number",
 			"inclusiveMinimum": 0,
 			"inclusiveMaximum": 1,
@@ -106,7 +106,7 @@
 			]
 		},
 		"Isobaric mass heat capacity": {
-			"description": "in [(m^2)/(K s^2)] or, more familiar, [J/(kg K)].\nThe ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at constant pressure.",
+			"description": "The ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at a constant pressure.\n🔗https://en.wikipedia.org/wiki/Heat_capacity#Table_of_specific_heat_capacities \nUnit: [(m^2)/(K s^2)] or, more familiar, [J/(kg K)].",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
@@ -114,7 +114,7 @@
 			]
 		},
 		"Thermal conductivity": {
-			"description": "in [(kg m)/(s^3 K)] or, more familiar, [(W m)/K].\nThe property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.",
+			"description": "The property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.\n🔗https://en.wikipedia.org/wiki/Thermal_conductivity \nUnit: [(kg m)/(s^3 K)] or, more familiar, [(W m)/K].",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
@@ -122,7 +122,7 @@
 			]
 		},
 		"Atmospheric pressure melting point": {
-			"description": "[K] The temperature at 1 atm at which the medium changes to the fluid phase.",
+			"description": "The temperature at 1 atm at which the medium changes to the solid phase.\nUnit: [K]",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
