@@ -1,10 +1,6 @@
 {
 	"Sampling": {
-		"LatticeSpacing": {
-			"X": 2.44140625e-04,
-			"Y": 2.44140625e-04,
-			"Z": 2.44140625e-04
-		},
+		"LatticeSpacing": [2.44140625e-04, 2.44140625e-04, 2.44140625e-04],
 		"LatticeExtrema": {
 			"X": {
 				"Min": -14e-2,
@@ -28,21 +24,21 @@
 			"Inclination": 0,
 			"Azimuth": 1.5707963267948966,
 			"ScaleFactor": 5e-2,
-			"Translation": {
-				"X": 0,
-				"Y": 0,
-				"Z": 0
-			}
+			"Translation": [
+				0,
+				0,
+				0
+			]
 		},
 		"TransducerSettings": {
-			"Focus": {
-				"X": 0,
-				"Y": 0,
-				"Z": 0
-			},
+			"Focus": [
+				0,
+				0,
+				0
+			],
 			"Power": 20,
 			"Frequency": 1.4e6,
-			"FocusDiameter": 2e-3
+			"FocusDiameter": 4e-3
 		}
 	}
 }

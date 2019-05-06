@@ -1,61 +1,29 @@
 {
 	"Planes": [{
 			"MediumName": "Bone",
-			"Center": {
-				"X": 3.6e-2,
-				"Y": 0,
-				"Z": 0
-			},
-			"Normal": {
-				"X": -1,
-				"Y": 0,
-				"Z": 0
-			},
+			"Center": [3.6e-2, 0, 0],
+			"Normal": [-1, 0, 0],
 			"Id": 0
 		},
 		{
 			"MediumName": "Muscle",
-			"Center": {
-				"X": 3.6e-2,
-				"Y": 0,
-				"Z": 0
-			},
-			"Normal": {
-				"X": 1,
-				"Y": 0,
-				"Z": 0
-			},
+			"Center": [3.6e-2, 0, 0],
+			"Normal": [1, 0, 0],
 			"Id": 1
 		}
 	],
 	"Cylinders": [{
 			"MediumName": "Bone",
 			"Radius": 2e-2,
-			"Center": {
-				"X": 5e-2,
-				"Y": 0,
-				"Z": 0
-			},
-			"ShaftDirection": {
-				"X": 0,
-				"Y": 0,
-				"Z": 1
-			},
+			"Center": [5e-2, 0, 0],
+			"ShaftDirection": [0, 0, 1],
 			"Id": 2
 		},
 		{
 			"MediumName": "Muscle",
 			"Radius": 2e-2,
-			"Center": {
-				"X": 5e-2,
-				"Y": 0,
-				"Z": 0
-			},
-			"ShaftDirection": {
-				"X": 0,
-				"Y": 0,
-				"Z": 1
-			},
+			"Center": [5e-2, 0, 0],
+			"ShaftDirection": [0, 0, 1],
 			"Id": 3
 		}
 	],

@@ -41,7 +41,7 @@
 			"exclusiveMinimum": 0
 		},
 		"Direction": {
-			"description": "Normalized direction towards which the transducer is focused .",
+			"description": "Normalized direction towards which the transducer is focused.",
 			"$ref": "#NormalVector"
 		},
 		"ImmersionMedium": {

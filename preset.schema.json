@@ -131,22 +131,11 @@
 	},
 	"Vector": {
 		"$id": "#Vector",
-		"type": "object",
-		"required": [
-			"X",
-			"Y",
-			"Z"
-		],
-		"properties": {
-			"X": {
-				"type": "number"
-			},
-			"Y": {
-				"type": "number"
-			},
-			"Z": {
-				"type": "number"
-			}
+		"type": "array",
+		"maxItems": 3,
+		"minItems": 3,
+		"items": {
+			"type": "number"
 		}
 	},
 	"Transformation": {

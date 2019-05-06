@@ -50,7 +50,7 @@
 					},
 					"ShaftDirection": {
 						"description": "The direction the shaft is pointed towards, i.e. the direction that is perpendicular to the base plane of the cylinder",
-						"$ref": "#Vector"
+						"$ref": "#NormalVector"
 					},
 					"Id": {
 						"$ref": "#Id"
@@ -81,7 +81,7 @@
 						"description": "Location of the center of the plane"
 					},
 					"Normal": {
-						"$ref": "#Vector",
+						"$ref": "#NormalVector",
 						"description": "Direction of the normal vector to the plane."
 					},
 					"Id": {
@@ -148,22 +148,22 @@
 	},
 	"Vector": {
 		"$id": "#Vector",
-		"type": "object",
-		"required": [
-			"X",
-			"Y",
-			"Z"
-		],
-		"properties": {
-			"X": {
-				"type": "number"
-			},
-			"Y": {
-				"type": "number"
-			},
-			"Z": {
-				"type": "number"
-			}
+		"type": "array",
+		"maxItems": 3,
+		"minItems": 3,
+		"items": {
+			"type": "number"
+		}
+	},
+	"NormalVector": {
+		"$id": "#NormalVector",
+		"type": "array",
+		"maxItems": 3,
+		"minItems": 3,
+		"items": {
+			"type": "number",
+			"Minimum": -1,
+			"Maximum": 1
 		}
 	}
 }
