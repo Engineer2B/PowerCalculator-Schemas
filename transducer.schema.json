@@ -9,6 +9,7 @@
 		"FocusDiameters",
 		"ElementCoordinates",
 		"ElementRadius",
+		"Direction",
 		"ImmersionMedium",
 		"Transformation"
 	],
@@ -29,36 +30,19 @@
 			"$ref": "#PositiveRange"
 		},
 		"ElementCoordinates": {
-			"type": "object",
-			"required": ["X", "Y", "Z"],
+			"type": "array",
 			"description": "The coordinates of the transducer elements in [m].",
-			"properties": {
-				"X": {
-					"type": "array",
-					"description": "X coordinates of the transducer elements in [m].",
-					"items": {
-						"type": "number"
-					}
-				},
-				"Y": {
-					"type": "array",
-					"description": "Y coordinates of the transducer elements in [m].",
-					"items": {
-						"type": "number"
-					}
-				},
-				"Z": {
-					"type": "array",
-					"description": "Z coordinates of the transducer elements in [m].",
-					"items": {
-						"type": "number"
-					}
-				}
+			"items": {
+				"$ref": "#Vector"
 			}
 		},
 		"ElementRadius": {
 			"type": "number",
 			"exclusiveMinimum": 0
+		},
+		"Direction": {
+			"description": "Normalized direction towards which the transducer is focused .",
+			"$ref": "#NormalVector"
 		},
 		"ImmersionMedium": {
 			"type": "string",
@@ -126,22 +110,22 @@
 	},
 	"Vector": {
 		"$id": "#Vector",
-		"type": "object",
-		"required": [
-			"X",
-			"Y",
-			"Z"
-		],
-		"properties": {
-			"X": {
-				"type": "number"
-			},
-			"Y": {
-				"type": "number"
-			},
-			"Z": {
-				"type": "number"
-			}
+		"type": "array",
+		"maxItems": 3,
+		"minItems": 3,
+		"items": {
+			"type": "number"
+		}
+	},
+	"NormalVector": {
+		"$id": "#NormalVector",
+		"type": "array",
+		"maxItems": 3,
+		"minItems": 3,
+		"items": {
+			"type": "number",
+			"Minimum": -1,
+			"Maximum": 1
 		}
 	}
 }
