@@ -21,7 +21,7 @@
 		"Maximum": 50,
 		"MultipleOf": 1
 	},
-	"ImmersionMedium": "LiquifiedFluid",
+	"ImmersionSurfaceId": 0,
 	"NaturalFocus": [0, 0, 0],
 	"Transformation": {
 		"Inclination": 0,

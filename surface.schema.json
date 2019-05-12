@@ -116,12 +116,12 @@
 						}
 					},
 					"ElementIndices": {
-						"description": "Array of three node indices which together make up a triangle.",
+						"description": "Array of the id of the element and the three node indices which together make up a triangle.",
 						"type": "array",
 						"items": {
 							"type": "array",
-							"minItems": 3,
-							"maxItems": 3,
+							"minItems": 4,
+							"maxItems": 4,
 							"items": {
 								"type": "integer",
 								"exclusiveMinimum": 0
@@ -144,7 +144,7 @@
 		"$id": "#Id",
 		"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
 		"type": "integer",
-		"exclusiveMinimum": -1
+		"minimum": 0
 	},
 	"Vector": {
 		"$id": "#Vector",

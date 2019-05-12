@@ -31,12 +31,12 @@
 						}
 					},
 					"ElementIndices": {
-						"description": "Array of four node indices which together make up a tetrahedron.",
+						"description": "Array of the id of the element and the four node indices which together make up a tetrahedron.",
 						"type": "array",
 						"items": {
 							"type": "array",
-							"minItems": 4,
-							"maxItems": 4,
+							"minItems": 5,
+							"maxItems": 5,
 							"items": {
 								"type": "integer",
 								"exclusiveMinimum": 0

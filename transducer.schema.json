@@ -10,7 +10,7 @@
 		"ElementCoordinates",
 		"ElementRadius",
 		"Direction",
-		"ImmersionMedium",
+		"ImmersionSurfaceId",
 		"Transformation"
 	],
 	"properties": {
@@ -44,11 +44,11 @@
 			"description": "Normalized direction towards which the transducer is focused.",
 			"$ref": "#NormalVector"
 		},
-		"ImmersionMedium": {
-			"type": "string",
-			"description": "The name of the fluid in which the transducer is immersed and which is described by a corresponding ${name}.fluid file.",
-			"minLength": 1,
-			"pattern": "^[\\w\\-. ]+$"
+		"ImmersionSurfaceId": {
+			"type": "integer",
+			"description": "The id of the surface in which the transducer is immersed.",
+			"minimum": 0,
+			"default": 0
 		},
 		"NaturalFocus": {
 			"description": "Unshifted focus of the transducer in [m, m, m] (if ScaleFactor is 1).",
