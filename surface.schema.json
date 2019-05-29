@@ -3,6 +3,9 @@
 	"title": "Format of the geometrical triangle-surface description.",
 	"description": "Description of the surfaces that form the boundaries of the object through which the sound waves travel.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
+	"required": [
+		"UnboundedId"
+	],
 	"anyOf": [{
 			"required": [
 				"Cylinders"
@@ -20,6 +23,10 @@
 		}
 	],
 	"properties": {
+		"UnboundedId": {
+			"description": "Identifier for the outermost volume.",
+			"$ref": "#Id"
+		},
 		"Cylinders": {
 			"minItems": 1,
 			"type": "array",

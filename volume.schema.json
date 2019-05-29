@@ -3,8 +3,13 @@
 	"title": "Format of the geometrical tetrahedron-volume description.",
 	"description": "Description of the volumes that form the object through which the sound waves travel.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
-	"required": ["TetrahedronMeshes"],
+	"required": ["TetrahedronMeshes", "UnboundedId"],
 	"properties": {
+		"UnboundedId": {
+			"description": "Identifier for the outermost volume.",
+			"type": "integer",
+			"exclusiveMinimum": -1
+		},
 		"TetrahedronMeshes": {
 			"type": "object",
 			"required": ["Nodes", "Values"],
