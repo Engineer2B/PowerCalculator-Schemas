@@ -3,9 +3,6 @@
 	"title": "Format of the geometrical triangle-surface description.",
 	"description": "Description of the surfaces that form the boundaries of the object through which the sound waves travel.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
-	"required": [
-		"UnboundedId"
-	],
 	"anyOf": [{
 			"required": [
 				"Cylinders"
@@ -23,10 +20,6 @@
 		}
 	],
 	"properties": {
-		"UnboundedId": {
-			"description": "Identifier for the outermost volume.",
-			"$ref": "#Id"
-		},
 		"Cylinders": {
 			"minItems": 1,
 			"type": "array",
@@ -34,18 +27,14 @@
 			"items": {
 				"type": "object",
 				"required": [
-					"MediumName",
 					"Radius",
 					"Center",
 					"ShaftDirection",
-					"Id"
+					"MediumName",
+					"Id",
+					"IsUnbounded"
 				],
 				"properties": {
-					"MediumName": {
-						"type": "string",
-						"description": "Type of medium that the inward normal vector is pointing towards.",
-						"minLength": 1
-					},
 					"Radius": {
 						"description": "Radius of the cylinder in [m] (if ScaleFactor is 1).",
 						"type": "number",
@@ -59,8 +48,17 @@
 						"description": "The direction the shaft is pointed towards, i.e. the direction that is perpendicular to the base plane of the cylinder",
 						"$ref": "#NormalVector"
 					},
+					"IsUnbounded": {
+						"description": "Whether this is the outermost volume.",
+						"type": "boolean"
+					},
 					"Id": {
 						"$ref": "#Id"
+					},
+					"MediumName": {
+						"type": "string",
+						"description": "Type of medium that the inward normal vector is pointing towards.",
+						"minLength": 1
 					}
 				}
 			}
@@ -123,7 +121,8 @@
 						"required": [
 							"ElementIndices",
 							"MediumName",
-							"Id"
+							"Id",
+							"IsUnbounded"
 						],
 						"properties": {
 							"ElementIndices": {
@@ -146,6 +145,10 @@
 							},
 							"Id": {
 								"$ref": "#Id"
+							},
+							"IsUnbounded": {
+								"description": "Whether this is the outermost volume.",
+								"type": "boolean"
 							}
 						}
 					}
