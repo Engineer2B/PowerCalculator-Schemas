@@ -1,30 +1,31 @@
 {
-	"Planes": [{
-		"MediumName": "Bone",
-		"Center": [0.036, 0, 0],
-		"Normal": [-1, 0, 0],
-		"Id": 0
-	}, {
-		"MediumName": "Muscle",
-		"Center": [0.036, 0, 0],
-		"Normal": [1, 0, 0],
-		"Id": 1
-	}],
-	"Cylinders": [{
-		"MediumName": "Bone",
-		"Radius": 0.02,
-		"Center": [0.05, 0, 0],
-		"ShaftDirection": [0, 0, 1],
-		"Id": 2,
-		"IsUnbounded": false
-	}, {
-		"MediumName": "Muscle",
-		"Radius": 0.02,
-		"Center": [0.05, 0, 0],
-		"ShaftDirection": [0, 0, 1],
-		"Id": 3,
-		"IsUnbounded": true
-	}],
+	"Singulars": {
+		"Shapes": [{
+			"Id": 1,
+			"Type": "InfinitePlane",
+			"Center": [0.036, 0, 0],
+			"Normal": [-1, 0, 0]
+		}, {
+			"Id": 2,
+			"Type": "InfiniteCylinder",
+			"Center": [0.05, 0, 0],
+			"Radius": 0.02,
+			"ShaftDirection": [0, 0, 1]
+		}],
+		"Collections": [{
+			"Id": 0,
+			"ShapeIndices": [1],
+			"MediumName": "CastorOil"
+		}, {
+			"Id": 1,
+			"ShapeIndices": [-1, -2],
+			"MediumName": "Muscle"
+		}, {
+			"Id": 2,
+			"ShapeIndices": [2],
+			"MediumName": "Bone"
+		}]
+	},
 	"Meshes": {
 		"Nodes": [
 			[-237.223, -69.4408, 1039.87],
