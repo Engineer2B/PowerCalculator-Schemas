@@ -82,7 +82,7 @@
 			]
 		},
 		"Isobaric mass heat capacity": {
-			"description": "The ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at a constant pressure.\n🔗https://en.wikipedia.org/wiki/Heat_capacity#Table_of_specific_heat_capacities \nUnit: [(m^2)/(K s^2)] or, more familiar, [J/(kg K)].",
+			"description": "The ratio of the heat added to (or removed from) an object to the resulting temperature change per unit mass at a constant pressure.\n🔗https://en.wikipedia.org/w/index.php?title=Table_of_specific_heat_capacities&oldid=896766640 \nUnit: [(m^2)/(K s^2)] or, more familiar, [J/(kg K)].",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
