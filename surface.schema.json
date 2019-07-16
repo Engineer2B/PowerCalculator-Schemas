@@ -131,7 +131,7 @@
 					}
 				},
 				"Elements": {
-					"description": "The three node indices which together make up a triangle of a mesh of a material",
+					"description": "The three node indices which together make up a triangle of a mesh of a material.",
 					"type": "array",
 					"items": {
 						"type": "array",
@@ -188,7 +188,7 @@
 	},
 	"IsUnbounded": {
 		"$id": "#IsUnbounded",
-		"description": "Whether this is the outermost volume.",
+		"description": "Whether the volume the surface describe reaches into infinity.",
 		"type": "boolean",
 		"default": false
 	},
