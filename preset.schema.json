@@ -82,13 +82,18 @@
 						"Focus",
 						"Power",
 						"Frequency",
-						"FocusDiameter"
+						"FocusDiameter",
+						"TrajectoryInterval",
+						"SonicationTiming",
+						"ImagingTiming"
 					],
 					"description": "Settings of the transducer.",
 					"properties": {
 						"Focus": {
 							"description": "Position towards which the focus is phase-shifted in [m, m, m].",
-							"$ref": "#Vector"
+							"items": {
+								"$ref": "#Vector"
+							}
 						},
 						"Power": {
 							"type": "number",
@@ -111,6 +116,19 @@
 								12e-3,
 								16e-3
 							]
+						},
+						"TrajectoryInterval": {
+							"type": "number",
+							"description": "Duration for which a focus is sonicated in [s].",
+							"exclusiveMinimum": 0
+						},
+						"SonicationTiming": {
+							"$ref": "#Extremum",
+							"description": "The timeframe accross which sonication occurs in [s]."
+						},
+						"ImagingTiming": {
+							"$ref": "#Extremum",
+							"description": "The timeframe accross which imaging occurs in [s]."
 						}
 					}
 				}
