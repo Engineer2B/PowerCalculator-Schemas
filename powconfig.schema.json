@@ -15,7 +15,7 @@
 	"DirectoryPath": {
 		"$id": "#DirectoryPath",
 		"type": "array",
-		"minItems": 1,
+		"minItems": 0,
 		"items": {
 			"type": "string",
 			"description": "Part of the path to a file or folder.\nAvailable variables:\n$SourceCodeRootPath - to refer to the root of the source code.\n$DropboxRootPath - to refer to the Dropbox folder (if it exists).",
@@ -40,7 +40,8 @@
 			"$ref": "#DirectoryPath"
 		},
 		"Transducer": {
-			"type": "object",
+			"type": ["object", "array"],
+			"maxItems": 0,
 			"required": [
 				"Path",
 				"FileName"
@@ -57,7 +58,8 @@
 			}
 		},
 		"Preset": {
-			"type": "object",
+			"type": ["object", "array"],
+			"maxItems": 0,
 			"required": [
 				"Path",
 				"FileName"
@@ -74,7 +76,8 @@
 			}
 		},
 		"Surface": {
-			"type": "object",
+			"type": ["object", "array"],
+			"maxItems": 0,
 			"required": [
 				"Path",
 				"FileName"
@@ -91,7 +94,8 @@
 			}
 		},
 		"Volume": {
-			"type": "object",
+			"type": ["object", "array"],
+			"maxItems": 0,
 			"required": [
 				"Path",
 				"FileName"
