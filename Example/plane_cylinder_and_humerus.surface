@@ -32,7 +32,8 @@
 			"Color": [255, 255, 255],
 			"MediumName": "Bone",
 			"Id": 0,
-			"IsUnbounded": false
+			"IsUnbounded": false,
+			"Neighbors": []
 		}],
 		"Nodes": [
 			[-237.223, -69.4408, 1039.87],

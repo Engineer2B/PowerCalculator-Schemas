@@ -153,7 +153,8 @@
 							"ElementIndices",
 							"MediumName",
 							"Id",
-							"IsUnbounded"
+							"IsUnbounded",
+							"Neighbors"
 						],
 						"properties": {
 							"ElementIndices": {
@@ -173,6 +174,15 @@
 							},
 							"IsUnbounded": {
 								"$ref": "#IsUnbounded"
+							},
+							"Neighbors": {
+								"description": "Array of the ids of the neighboring meshes.",
+								"type": "array",
+								"minItems": 1,
+								"items": {
+									"type": "integer",
+									"minimum": 0
+								}
 							}
 						}
 					}
