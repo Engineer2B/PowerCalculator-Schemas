@@ -1,6 +1,6 @@
 {
 	"Sampling": {
-		"LatticeSteps": [10, 10, 10],
+		"LatticeSpacing": [2.44140625e-04, 2.44140625e-04, 2.44140625e-04],
 		"LatticeExtrema": {
 			"X": {
 				"Min": -14e-2,

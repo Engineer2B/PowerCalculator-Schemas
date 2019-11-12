@@ -12,22 +12,16 @@
 			"type": "object",
 			"description": "Settings of the sampling space.",
 			"required": [
-				"LatticeSteps",
+				"LatticeSpacing",
 				"LatticeExtrema",
 				"RaysPerElement",
 				"PowerLimit",
 				"ThetaMax"
 			],
 			"properties": {
-				"LatticeSteps": {
-					"description": "Number of steps between the corners of the lattice.",
-					"type": "array",
-					"maxItems": 3,
-					"minItems": 3,
-					"items": {
-						"type": "integer",
-						"minimum": 3
-					}
+				"LatticeSpacing": {
+					"description": "Spacing between points inside the lattice box in [m, m, m].",
+					"$ref": "#Vector"
 				},
 				"LatticeExtrema": {
 					"type": "object",
