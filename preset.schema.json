@@ -82,7 +82,6 @@
 						"Focus",
 						"Power",
 						"Frequency",
-						"FocusDiameter",
 						"TrajectoryInterval",
 						"SonicationTiming",
 						"ImagingTiming"
@@ -104,18 +103,6 @@
 							"type": "number",
 							"description": "Frequency at which the transducer elements oscillate in [Hz].",
 							"exclusiveMinimum": 0
-						},
-						"FocusDiameter": {
-							"type": "number",
-							"description": "Diameter of the area of focus in [m].",
-							"enum": [
-								1e-3,
-								2e-3,
-								4e-3,
-								8e-3,
-								12e-3,
-								16e-3
-							]
 						},
 						"TrajectoryInterval": {
 							"type": "number",
