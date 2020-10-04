@@ -6,7 +6,6 @@
 	"required": [
 		"Powers",
 		"Frequencies",
-		"FocusDiameters",
 		"ElementCoordinates",
 		"ElementDirections",
 		"ElementRadius",
