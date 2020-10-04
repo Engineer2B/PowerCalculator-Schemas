@@ -9,6 +9,11 @@
 		[2, 2, 4],
 		[4, 3, 5e2]
 	],
+	"ElementDirections": [
+		[0, 1, 0],
+		[0, 0, 1],
+		[1, 0, 0]
+	],
 	"ElementRadius": 9999e-3,
 	"Direction": [1, 0, 0],
 	"Frequencies": {

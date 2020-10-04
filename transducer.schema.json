@@ -8,6 +8,7 @@
 		"Frequencies",
 		"FocusDiameters",
 		"ElementCoordinates",
+		"ElementDirections",
 		"ElementRadius",
 		"Direction",
 		"ImmersionSurfaceId",
@@ -34,6 +35,13 @@
 			"description": "The coordinates of the transducer elements in [m].",
 			"items": {
 				"$ref": "#Vector"
+			}
+		},
+		"ElementDirections": {
+			"type": "array",
+			"description": "The directions of the transducer element planes.",
+			"items": {
+				"$ref": "#NormalVector"
 			}
 		},
 		"ElementRadius": {
