@@ -32,13 +32,23 @@
 		},
 		"TransducerSettings": {
 			"Focus": [
-				0,
-				0,
-				0
+				[
+					0,
+					0,
+					0
+				]
 			],
 			"Power": 20,
 			"Frequency": 1.4e6,
-			"FocusDiameter": 4e-3
+			"TrajectoryInterval": 20,
+			"ImagingTiming": {
+				"Min": 0,
+				"Max": 60
+			},
+			"SonicationTiming": {
+				"Min": 0.2,
+				"Max": 20.2
+			}
 		}
 	}
 }

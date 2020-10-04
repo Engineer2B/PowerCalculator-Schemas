@@ -3,66 +3,63 @@
 	"title": "Format of the geometrical tetrahedron-volume description.",
 	"description": "Description of the volumes that form the object through which the sound waves travel.\nSchema on github: https://github.com/Engineer2B/PowerCalculator-Schemas",
 	"type": "object",
-	"required": ["TetrahedronMeshes", "UnboundedId"],
+	"required": ["Nodes", "Values"],
 	"properties": {
-		"UnboundedId": {
-			"description": "Identifier for the outermost volume.",
-			"type": "integer",
-			"exclusiveMinimum": -1
+		"Nodes": {
+			"description": "The coordinates in space where the vertices/nodes of the mesh are located.",
+			"type": "array",
+			"items": {
+				"type": "array",
+				"minItems": 3,
+				"maxItems": 3,
+				"items": {
+					"type": "number"
+				}
+			}
 		},
-		"TetrahedronMeshes": {
-			"type": "object",
-			"required": ["Nodes", "Values"],
-			"description": "Descriptions of tetrahedral volume meshes.",
-			"properties": {
-				"Nodes": {
-					"description": "The coordinates in space where the vertices/nodes of the mesh are located.",
-					"type": "array",
-					"items": {
+		"Elements": {
+			"description": "The four node indices which together make up a tetrahedron.",
+			"type": "array",
+			"items": {
+				"type": "array",
+				"minItems": 4,
+				"maxItems": 4,
+				"items": {
+					"type": "integer",
+					"exclusiveMinimum": 0
+				}
+			}
+		},
+		"Values": {
+			"description": "The individual mesh objects.",
+			"minItems": 1,
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"ElementIndices",
+					"MediumName",
+					"Id"
+				],
+				"properties": {
+					"ElementIndices": {
+						"description": "Array of the id of the element.",
 						"type": "array",
-						"minItems": 3,
-						"maxItems": 3,
+						"minItems": 1,
 						"items": {
-							"type": "number"
+							"type": "integer",
+							"exclusiveMinimum": 0
 						}
-					}
-				},
-				"Values": {
-					"description": "The individual mesh objects.",
-					"minItems": 1,
-					"type": "array",
-					"items": {
-						"type": "object",
-						"required": [
-							"ElementIndices",
-							"MediumName",
-							"Id"
-						],
-						"properties": {
-							"ElementIndices": {
-								"description": "Array of the id of the element and the four node indices which together make up a tetrahedron.",
-								"type": "array",
-								"items": {
-									"type": "array",
-									"minItems": 5,
-									"maxItems": 5,
-									"items": {
-										"type": "integer",
-										"exclusiveMinimum": 0
-									}
-								}
-							},
-							"MediumName": {
-								"type": "string",
-								"minLength": 1,
-								"description": "The unique name of the medium."
-							},
-							"Id": {
-								"description": "Identifier for this volume. This identifier should be unique amongst all other volumes.",
-								"type": "integer",
-								"exclusiveMinimum": -1
-							}
-						}
+					},
+					"MediumName": {
+						"type": "string",
+						"minLength": 1,
+						"description": "The unique name of the medium."
+					},
+					"Id": {
+						"description": "Identifier for this volume. This identifier should be unique amongst all other volumes.",
+						"type": "integer",
+						"exclusiveMinimum": -1
 					}
 				}
 			}
