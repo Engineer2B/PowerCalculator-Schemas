@@ -1,9 +1,4 @@
 {
-	"Powers": {
-		"Minimum": 1,
-		"Maximum": 50,
-		"MultipleOf": 1
-	},
 	"ElementCoordinates": [
 		[0, 1, -1e-2],
 		[2, 2, 4],
@@ -16,11 +11,6 @@
 	],
 	"ElementRadius": 9999e-3,
 	"Direction": [1, 0, 0],
-	"Frequencies": {
-		"Minimum": 10e8,
-		"Maximum": 12e8,
-		"MultipleOf": 1e7
-	},
 	"FocusDiameters": {
 		"Minimum": 1,
 		"Maximum": 50,
