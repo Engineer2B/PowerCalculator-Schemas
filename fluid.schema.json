@@ -90,7 +90,7 @@
 			]
 		},
 		"Thermal conductivity": {
-			"description": "The property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.\n🔗https://en.wikipedia.org/wiki/Thermal_conductivity \n🔗https://en.wikipedia.org/wiki/Laser_flash_analysis \nUnit: [(kg m)/(s^3 K)] or, more familiar, [(W m)/K].",
+			"description": "The property of a material to conduct heat evaluated in terms of Fourier's Law for heat conduction.\n🔗https://en.wikipedia.org/wiki/Thermal_conductivity \n🔗https://en.wikipedia.org/wiki/Laser_flash_analysis \nUnit: [(kg m)/(s^3 K)] or, more familiar, [W/(K m)].",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [
