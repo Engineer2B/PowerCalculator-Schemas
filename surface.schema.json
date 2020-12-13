@@ -33,7 +33,8 @@
 								"exclusiveMinimum": 0
 							},
 							"Type": {
-								"type": "string"
+								"type": "string",
+								"description": "The type of surface, determines what other fields are available."
 							}
 						},
 						"anyOf": [{
