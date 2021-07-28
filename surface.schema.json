@@ -144,6 +144,17 @@
 						}
 					}
 				},
+				"Normals": {
+					"markdownDescription": "Each triangle separates two volumes with ids *m* and *n*, where *m* < *n*.\nThe *k*-th normal is perpendicular to the surface of the *k*-th triangle and points out of volume *m*(*k*) (into volume *n*(*k*)).",
+					"type": "array",
+					"items": {
+						"type": "array",
+						"minItems": 1,
+						"items": {
+							"$ref": "#Vector"
+						}
+					}
+				},
 				"Values": {
 					"description": "The individual mesh objects.",
 					"minItems": 1,
