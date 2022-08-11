@@ -7,6 +7,28 @@
 		"Sampling",
 		"System"
 	],
+	"$defs": {
+		"Extremum": {
+			"properties": {
+				"Min": {
+					"type": "number",
+					"description": "The minimimal value."
+				},
+				"Max": {
+					"type": "number",
+					"description": "The maximal value."
+				}
+			}
+		},
+		"Vector": {
+			"type": "array",
+			"maxItems": 3,
+			"minItems": 3,
+			"items": {
+				"type": "number"
+			}
+		}
+	},
 	"properties": {
 		"Sampling": {
 			"type": "object",
@@ -21,7 +43,7 @@
 			"properties": {
 				"LatticeSpacing": {
 					"description": "Spacing between points inside the lattice box in [m, m, m].",
-					"$ref": "#Vector"
+					"$ref": "#/$defs/Vector"
 				},
 				"LatticeExtrema": {
 					"type": "object",
@@ -34,15 +56,15 @@
 					"properties": {
 						"X": {
 							"description": "Minimal and maximal X values of the box in [m].",
-							"$ref": "#Extremum"
+							"$ref": "#/$defs/Extremum"
 						},
 						"Y": {
 							"description": "Minimal and maximal Y values of the box in [m].",
-							"$ref": "#Extremum"
+							"$ref": "#/$defs/Extremum"
 						},
 						"Z": {
 							"description": "Minimal and maximal Z values of the box in [m].",
-							"$ref": "#Extremum"
+							"$ref": "#/$defs/Extremum"
 						}
 					}
 				},
@@ -74,7 +96,30 @@
 			"properties": {
 				"ObjectTransformation": {
 					"description": "Transformation applied to the object.",
-					"$ref": "#Transformation"
+					"required": [
+						"Inclination",
+						"Azimuth",
+						"ScaleFactor",
+						"Translation"
+					],
+					"properties": {
+						"Inclination": {
+							"type": "number",
+							"description": "X or Y axis rotation angle in radians."
+						},
+						"Azimuth": {
+							"type": "number",
+							"description": "Z axis rotation angle in radians."
+						},
+						"ScaleFactor": {
+							"type": "number",
+							"description": "Scalar multiplier."
+						},
+						"Translation": {
+							"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
+							"$ref": "#/$defs/Vector"
+						}
+					}
 				},
 				"TransducerSettings": {
 					"type": "object",
@@ -91,7 +136,7 @@
 						"Focus": {
 							"description": "Position towards which the focus is phase-shifted in [m, m, m].",
 							"items": {
-								"$ref": "#Vector"
+								"$ref": "#/$defs/Vector"
 							}
 						},
 						"Power": {
@@ -110,64 +155,15 @@
 							"exclusiveMinimum": 0
 						},
 						"SonicationTiming": {
-							"$ref": "#Extremum",
+							"$ref": "#/$defs/Extremum",
 							"description": "The timeframe accross which sonication occurs in [s]."
 						},
 						"ImagingTiming": {
-							"$ref": "#Extremum",
+							"$ref": "#/$defs/Extremum",
 							"description": "The timeframe accross which imaging occurs in [s]."
 						}
 					}
 				}
-			}
-		}
-	},
-	"Extremum": {
-		"$id": "#Extremum",
-		"properties": {
-			"Min": {
-				"type": "number",
-				"description": "The minimimal value."
-			},
-			"Max": {
-				"type": "number",
-				"description": "The maximal value."
-			}
-		}
-	},
-	"Vector": {
-		"$id": "#Vector",
-		"type": "array",
-		"maxItems": 3,
-		"minItems": 3,
-		"items": {
-			"type": "number"
-		}
-	},
-	"Transformation": {
-		"$id": "#Transformation",
-		"required": [
-			"Inclination",
-			"Azimuth",
-			"ScaleFactor",
-			"Translation"
-		],
-		"properties": {
-			"Inclination": {
-				"type": "number",
-				"description": "X or Y axis rotation angle in radians."
-			},
-			"Azimuth": {
-				"type": "number",
-				"description": "Z axis rotation angle in radians."
-			},
-			"ScaleFactor": {
-				"type": "number",
-				"description": "Scalar multiplier."
-			},
-			"Translation": {
-				"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
-				"$ref": "#Vector"
 			}
 		}
 	}

@@ -33,7 +33,7 @@
 			"MediumName": "Bone",
 			"Id": 0,
 			"IsUnbounded": false,
-			"Neighbors": []
+			"Neighbors": [0,1]
 		}],
 		"Nodes": [
 			[-237.223, -69.4408, 1039.87],

@@ -122,7 +122,7 @@
 			]
 		},
 		"Atmospheric pressure melting point": {
-			"description": "The temperature at 1 atm at which the medium changes to the solid phase.\nUnit: [K]",
+			"description": "The temperature at 1 atm at which the medium changes to the solid phase.\nUnit: [K].",
 			"type": "number",
 			"exclusiveMinimum": 0,
 			"examples": [

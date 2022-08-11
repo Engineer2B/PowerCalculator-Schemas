@@ -11,19 +11,39 @@
 		"ImmersionSurfaceId",
 		"Transformation"
 	],
+	"$defs": {
+		"Vector": {
+			"type": "array",
+			"maxItems": 3,
+			"minItems": 3,
+			"items": {
+				"type": "number"
+			}
+		},
+		"NormalVector": {
+			"type": "array",
+			"maxItems": 3,
+			"minItems": 3,
+			"items": {
+				"type": "number",
+				"Minimum": -1,
+				"Maximum": 1
+			}
+		}
+	},
 	"properties": {
 		"ElementCoordinates": {
 			"type": "array",
 			"description": "The coordinates of the transducer elements in [m].",
 			"items": {
-				"$ref": "#Vector"
+				"$ref": "#/$defs/Vector"
 			}
 		},
 		"ElementDirections": {
 			"type": "array",
 			"description": "The directions of the transducer element planes.",
 			"items": {
-				"$ref": "#NormalVector"
+				"$ref": "#/$defs/NormalVector"
 			}
 		},
 		"ElementRadius": {
@@ -32,7 +52,7 @@
 		},
 		"Direction": {
 			"description": "Normalized direction towards which the transducer is focused.",
-			"$ref": "#NormalVector"
+			"$ref": "#/$defs/NormalVector"
 		},
 		"ImmersionSurfaceId": {
 			"type": "integer",
@@ -42,58 +62,34 @@
 		},
 		"NaturalFocus": {
 			"description": "Unshifted focus of the transducer in [m, m, m] (if ScaleFactor is 1).",
-			"$ref": "#Vector"
+			"$ref": "#/$defs/Vector"
 		},
 		"Transformation": {
 			"description": "Transformation applied to the transducer positions and natural focus.",
-			"$ref": "#Transformation"
-		}
-	},
-	"Transformation": {
-		"$id": "#Transformation",
-		"required": [
-			"Inclination",
-			"Azimuth",
-			"ScaleFactor",
-			"Translation"
-		],
-		"properties": {
-			"Inclination": {
-				"type": "number",
-				"description": "X or Y axis rotation angle in radians."
-			},
-			"Azimuth": {
-				"type": "number",
-				"description": "Z axis rotation angle in radians."
-			},
-			"ScaleFactor": {
-				"type": "number",
-				"description": "Scalar multiplier."
-			},
-			"Translation": {
-				"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
-				"$ref": "#Vector"
+			"required": [
+				"Inclination",
+				"Azimuth",
+				"ScaleFactor",
+				"Translation"
+			],
+			"properties": {
+				"Inclination": {
+					"type": "number",
+					"description": "X or Y axis rotation angle in radians."
+				},
+				"Azimuth": {
+					"type": "number",
+					"description": "Z axis rotation angle in radians."
+				},
+				"ScaleFactor": {
+					"type": "number",
+					"description": "Scalar multiplier."
+				},
+				"Translation": {
+					"description": "Vector of translation in [m, m, m] (if ScaleFactor is 1).",
+					"$ref": "#/$defs/Vector"
+				}
 			}
-		}
-	},
-	"Vector": {
-		"$id": "#Vector",
-		"type": "array",
-		"maxItems": 3,
-		"minItems": 3,
-		"items": {
-			"type": "number"
-		}
-	},
-	"NormalVector": {
-		"$id": "#NormalVector",
-		"type": "array",
-		"maxItems": 3,
-		"minItems": 3,
-		"items": {
-			"type": "number",
-			"Minimum": -1,
-			"Maximum": 1
 		}
 	}
 }

@@ -14,6 +14,36 @@
 			]
 		}
 	],
+	"$defs": {
+		"Id": {
+			"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
+			"type": "integer",
+			"minimum": 0
+		},
+		"Vector": {
+			"type": "array",
+			"maxItems": 3,
+			"minItems": 3,
+			"items": {
+				"type": "number"
+			}
+		},
+		"MediumName": {
+			"type": "string",
+			"minLength": 1,
+			"description": "The unique name of the medium."
+		},
+		"NormalVector": {
+			"type": "array",
+			"maxItems": 3,
+			"minItems": 3,
+			"items": {
+				"type": "number",
+				"Minimum": -1,
+				"Maximum": 1
+			}
+		}
+	},
 	"properties": {
 		"Singulars": {
 			"description": "Surfaces which are composed of (a) collection(s) of singular shapes.",
@@ -29,7 +59,7 @@
 						"type": "object",
 						"properties": {
 							"Id": {
-								"$ref": "#Id",
+								"$ref": "#/$defs/Id",
 								"exclusiveMinimum": 0
 							},
 							"Type": {
@@ -47,7 +77,7 @@
 								"properties": {
 									"Center": {
 										"description": "Center of the cylinder in [m, m, m] (if ScaleFactor is 1).",
-										"$ref": "#Vector"
+										"$ref": "#/$defs/Vector"
 									},
 									"Type": {
 										"const": "InfiniteCylinder"
@@ -59,7 +89,7 @@
 									},
 									"ShaftDirection": {
 										"description": "The direction the shaft is pointed towards, i.e. the direction that is perpendicular to the base plane of the cylinder",
-										"$ref": "#NormalVector"
+										"$ref": "#/$defs/NormalVector"
 									}
 								}
 							},
@@ -71,11 +101,11 @@
 								"description": "Infinite planar surface (IPS) that is required to be parallel to other IPS objects, i.e. if all IPS objects have the same normal vector, they will intersect yielding an incorrect topology.",
 								"properties": {
 									"Center": {
-										"description": "Location of the center of the plane",
-										"$ref": "#Vector"
+										"description": "Location of the center of the plane.",
+										"$ref": "#/$defs/Vector"
 									},
 									"Normal": {
-										"$ref": "#NormalVector",
+										"$ref": "#/$defs/NormalVector",
 										"description": "Direction of the normal vector to the plane."
 									},
 									"Type": {
@@ -94,7 +124,7 @@
 						"required": ["Id", "ShapeIndices", "MediumName"],
 						"properties": {
 							"Id": {
-								"$ref": "#Id"
+								"$ref": "#/$defs/Id"
 							},
 							"ShapeIndices": {
 								"type": "array",
@@ -105,9 +135,7 @@
 								}
 							},
 							"MediumName": {
-								"type": "string",
-								"minLength": 1,
-								"description": "The unique name of the medium."
+								"$ref": "#/$defs/MediumName"
 							}
 						}
 					}
@@ -151,7 +179,7 @@
 						"type": "array",
 						"minItems": 1,
 						"items": {
-							"$ref": "#Vector"
+							"$ref": "#/$defs/Vector"
 						}
 					}
 				},
@@ -179,13 +207,15 @@
 								}
 							},
 							"MediumName": {
-								"$ref": "#MediumName"
+								"$ref": "#/$defs/MediumName"
 							},
 							"Id": {
-								"$ref": "#Id"
+								"$ref": "#/$defs/Id"
 							},
 							"IsUnbounded": {
-								"$ref": "#IsUnbounded"
+								"description": "Whether the volume the surface describe reaches into infinity.",
+								"type": "boolean",
+								"default": false
 							},
 							"Neighbors": {
 								"description": "Array of the ids of the neighboring meshes.",
@@ -200,44 +230,6 @@
 					}
 				}
 			}
-		}
-	},
-	"Id": {
-		"$id": "#Id",
-		"description": "Identifier for this surface. This identifier should be unique amongst all other objects.",
-		"type": "integer",
-		"minimum": 0
-	},
-	"IsUnbounded": {
-		"$id": "#IsUnbounded",
-		"description": "Whether the volume the surface describe reaches into infinity.",
-		"type": "boolean",
-		"default": false
-	},
-	"Vector": {
-		"$id": "#Vector",
-		"type": "array",
-		"maxItems": 3,
-		"minItems": 3,
-		"items": {
-			"type": "number"
-		}
-	},
-	"MediumName": {
-		"$id": "#MediumName",
-		"type": "string",
-		"minLength": 1,
-		"description": "The unique name of the medium."
-	},
-	"NormalVector": {
-		"$id": "#NormalVector",
-		"type": "array",
-		"maxItems": 3,
-		"minItems": 3,
-		"items": {
-			"type": "number",
-			"Minimum": -1,
-			"Maximum": 1
 		}
 	}
 }
