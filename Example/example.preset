@@ -24,30 +24,27 @@
 			"Inclination": 0,
 			"Azimuth": 1.5707963267948966,
 			"ScaleFactor": 5e-2,
-			"Translation": [
-				0,
-				0,
-				0
-			]
+			"Translation": [ 0, 0, 0]
 		},
 		"TransducerSettings": {
 			"Focus": [
-				[
-					0,
-					0,
-					0
-				]
+				[ 0, 0, 0]
 			],
-			"Power": 20,
-			"Frequency": 1.4e6,
-			"TrajectoryInterval": 20,
+			"Power": [ 20 ],
+			"Frequency": [ 1.4e6 ],
+			"Trajectory": [{
+				"Focus_index_L": [1,2,3,4,5,6,7,8],
+				"Begin": 0,
+				"End": 17,
+				"Interval": 0.1},{
+				"Focus_index_L": [9,10,11,12,13,14,15,16],
+				"Begin": 17,
+				"End": 27,
+				"Interval": 0.1
+				}],
 			"ImagingTiming": {
 				"Min": 0,
 				"Max": 60
-			},
-			"SonicationTiming": {
-				"Min": 0.2,
-				"Max": 20.2
 			}
 		}
 	}

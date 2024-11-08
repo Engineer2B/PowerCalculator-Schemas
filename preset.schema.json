@@ -127,8 +127,7 @@
 						"Focus",
 						"Power",
 						"Frequency",
-						"TrajectoryInterval",
-						"SonicationTiming",
+						"Trajectory",
 						"ImagingTiming"
 					],
 					"description": "Settings of the transducer.",
@@ -140,23 +139,62 @@
 							}
 						},
 						"Power": {
-							"type": "number",
-							"description": "Total amount of power that the transducer sends out in [W].",
-							"exclusiveMinimum": 0
+							"type": "array",
+							"minItems": 1,
+							"description": "Total amount of power that the transducer sends out in the current sonication trajectory in [W].",
+							"items": {
+								"type": "number",
+								"exclusiveMinimum": 0
+							}
 						},
 						"Frequency": {
-							"type": "number",
-							"description": "Frequency at which the transducer elements oscillate in [Hz].",
-							"exclusiveMinimum": 0
+							"type": "array",
+							"minItems": 1,
+							"description": "Frequency at which the transducer elements oscillate in the current sonication trajectory in [Hz].",
+							"items": {
+								"type": "number",
+								"exclusiveMinimum": 0
+							}
 						},
-						"TrajectoryInterval": {
-							"type": "number",
-							"description": "Duration for which a focus is sonicated in [s].",
-							"exclusiveMinimum": 0
-						},
-						"SonicationTiming": {
-							"$ref": "#/$defs/Extremum",
-							"description": "The timeframe accross which sonication occurs in [s]."
+						"Trajectory": {
+							"type": "array",
+							"minItems": 1,
+							"description": "Sonication trajectory which can be treated as a single heat production averaged over the region.",
+							"items": {
+								"type": "object",
+								"required": [
+									"Focus_index_L",
+									"Begin",
+									"End",
+									"Interval"
+								],
+								"properties": {
+									"Focus_index_L": {
+										"type": "array",
+										"minItems": 1,
+										"items": {
+											"type": "integer",
+											"exclusiveMinimum": 0
+										},
+										"description": "Index to the rows of the focus matrix, where each row indicates a focus position. E.g., [3,4,5] would indicate this trajectory uses focus points 3, 4, and 5."
+									},
+									"Begin": {
+										"type": "number",
+										"minimum": 0,
+										"description": "Start time of the sonication trajectory in [s]."
+									},
+									"End": {
+										"type": "number",
+										"minimum": 0,
+										"description": "End time of the sonication trajectory in [s]."
+									},
+									"Interval": {
+										"type": "number",
+										"exclusiveMinimum": 0,
+										"description": "Time spend on each focus within the sonication trajectory in [s]."
+									}
+								}
+							}
 						},
 						"ImagingTiming": {
 							"$ref": "#/$defs/Extremum",
